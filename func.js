@@ -225,3 +225,80 @@ else
 }
 
 
+function ahead(whatever,size,opt="")
+{
+
+	let index=0;
+	let field=[];
+	opt=charToTag(opt);
+	for(let i in whatever)
+	{
+		field[index]=i;
+		++index;
+	}
+
+	if(size<field.length-1)
+	{
+		document.write(whatever[field[size]]+opt);
+		++size;
+		return ahead(whatever,size);
+	}
+	else
+	{
+		document.write(whatever[field[size]]);
+		return;
+	}
+}
+
+
+
+function recursively(whatever,size,opt="")
+{
+
+let index=0;
+let field=[];
+let s=(size==undefined?Object.keys(whatever).length:size);
+opt=charToTag(opt);
+for(let i in whatever)
+{
+field[index]=i;
+++index;
+}
+
+//let v=(s<=field.length-1?s:s-1);
+let v=(s>field.length-1?s-1:s);
+if(v==0)
+{
+	keyzin.push(whatever[field[v]]);
+	return;
+}
+	keyzin.push(whatever[field[v--]]);
+	return recursively(whatever,v);
+}
+
+
+
+
+function recursivelyAHEAD(whatever,size,opt="")
+{
+
+let index=0;
+let field=[];
+
+opt=charToTag(opt);
+for(let i in whatever)
+{
+field[index]=i;
+++index;
+}
+
+
+if(size<field.length-1)
+{
+	keyzin.push(whatever[field[size]]);
+	++size;
+	return recursivelyAHEAD(whatever,size);
+}
+	keyzin.push(whatever[field[size]]);
+	return;
+}
