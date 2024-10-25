@@ -73,16 +73,20 @@ function fori(param,opt="")
 	//param=param.toString();
 	let lp=param.length-1 || Object.keys(param).length-1;
 	let count=0;
+	let ar=[];
 	for(let i in param)
 	    	if(i==lp || count==lp)
 	        {
-	    		document.write(param[i]);
-	       }
+	    			document.write(param[i]);
+	       		ar.push(param[i]);
+	       	}
 	       else
 	       {
 	        	document.write(param[i]+opt);
+	        	ar.push(param[i]);
 	        ++count;
 	        }
+	return ar;
 }
 
 
@@ -133,16 +137,21 @@ function irof(param,opt="")
 	let lp=param.length-1 || Object.keys(param).length-1;
 	let count=lp;
 	let i=0;
+	let ar=[];
 	while(lp>=i)
 	{	
 		if(typeof param=="object")
 		{
 	  	let array=getFields(param);
 	     if(lp==i)
+	     {
 	     	document.write(param[array[lp]]);
+	     	ar.push(param[array[lp]]);
+	     }
 	     else
 	     {
 	     	document.write(param[array[lp]]+opt);
+	     	ar.push(param[array[lp]])
 	     }
 		}
 	  else
@@ -150,28 +159,23 @@ function irof(param,opt="")
 	  	if(lp==i)
 	    {
 	   		document.write(param[lp]);
+	   		ar.push(param[lp]);
 	    }
 	    else
 	    {
 	     	document.write(param[lp]+opt);
+	     	ar.push(param[lp]);
 	    }
 		}
 	  --lp;
 	  --count;
 	}
+	return ar;
 }
 
 
 function getFieldByIndex(obj,index)
 {
-	/*
-	et array=[];
-	let x=0;
-	for(let i in obj)
-	{	
-	array[x]=i;
-	++x;
-	*/
 	let array=[];
 	for(let i in obj)
 	array.push(i);
@@ -179,30 +183,45 @@ function getFieldByIndex(obj,index)
 }
 
 
-function reverse(obj,size,opt="")
+function charToTag(char)
 {
-
-let ind=0;
-let field=[];
-for(let i in obj)
+	if(char=="\n")
 {
-field[ind]=i;
-++ind;
-}
-
-let x=1;
-//vsize=(size<=field.length-1?vsize:vsize-1);
-vsize=(vsize>field.length-1?vsize-1:vsize);
-if(v==0)
-{
-document.write(obj[field[v]]+opt);
-return;
+	return "<br>";
 }
 else
 {
-document.write(obj[field[v]]+opt);
---v;
-}
-return reverse(obj,v);
+	return char;
+} 
 
 }
+
+function reverse(whatever,size,opt="")
+{
+
+let index=0;
+let field=[];
+let s=(size==undefined?Object.keys(whatever).length:size);
+opt=charToTag(opt);
+for(let i in whatever)
+{
+field[index]=i;
+++index;
+}
+
+//let v=(s<=field.length-1?s:s-1);
+let v=(s>field.length-1?s-1:s);
+if(v==0)
+{
+	document.write(whatever[field[v]]);
+	return;
+}
+else
+{
+	document.write(whatever[field[v]]+opt);
+	--v;
+}
+	return reverse(whatever,v);
+}
+
+
