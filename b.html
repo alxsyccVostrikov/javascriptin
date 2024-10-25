@@ -7,18 +7,47 @@
 	<script type="text/javascript">
 		let path="./01/";
 		var f=[
-			"addJS.js",
-			"printf.js",
-			"cpt.js",
-			"ascii.js",
-			"object.js",
-			"func.js"
+		"addJS.js",
+		"printf.js",
+		"cpt.js",
+		"ascii.js",
+		"object.js",
+		"func.js"
 		];
-		printAddedFiles(f);
-		addJSFromArray(f);
-		//addJSFromFolder(path,f);
-		let choice=f[1];
 
+		var f2={
+			"addJS":path+"addJS.js",
+			"printf":path+"printf.js",
+			"cpt":path+"cpt.js",
+			"ascii":path+"ascii.js",
+			"object":path+"object.js",
+			"func":path+"func.js"
+		};
+
+
+		printAddedFiles(f);
+		
+		//add files how you want toa
+		
+		/*
+		addSingleJS("addJS.js");
+		addSingleJS("printf.js");
+		addSingleJS("cpt.js");
+		addSingleJS("ascii.js");
+		addSingleJS("object.js");
+		addSingleJS("func.js");
+		*/
+
+		//addFromObject(f2);
+
+		//folder should be set inside function 'addFromArray'
+		addJSFromArray(f);
+		
+		//addJSFromFolder(path,f);
+		
+
+	let choice=f[5];
+		
 	</script>
 	<title>Document</title>
 </head>
@@ -72,6 +101,14 @@
 				println(TypeOfVar("a"));
 				println(TypeOfVar(25));
 				println(TypeOfVar(25.5));
+				let a=["a","b"];
+				let o={"name":"c",
+						"age":"d"}
+				let c="ef";
+				//let ar=irof(a);
+				let n=[];
+				n.push(reverse(c,c.length));
+				document.write("<br>:::"+n);
 			break;
 		
 		}
