@@ -17,7 +17,7 @@ function SetCss()
 
 
 
-function CriandoIcons(...args)
+function creatinIcons(...args)
 {
   for(let j=0;j<args.length;j++)
     for(let i=0;i<url.length;i++)
@@ -60,7 +60,7 @@ function genericSocialShare( i)
 }
     
     
-function BotoesDenuncia()
+function reportButton()
 {
   BoobleSort();
   document.writeln("<div class='middle'>");
@@ -69,7 +69,7 @@ function BotoesDenuncia()
   document.writeln("</div>");
 }
 
-function LinkDenuncia()
+function reportLink()
 {
   BoobleSort();
   document.writeln("<div class='middle'>");
