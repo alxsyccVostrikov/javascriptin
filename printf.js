@@ -27,9 +27,18 @@ function println(string="")
 	document.write(string+"<br>");
 }
 
-function echo(string="")
+function echo(...string)
 {
-	document.write(string);
+
+	if(string.length==0)
+	{
+		document.write(string[0]);
+	}
+	else
+	{
+		for(let i=0;i<string.length;i++)
+		document.write(string[i]+string[++i]);
+	}
 }
 
 function printf(...string)
@@ -50,7 +59,7 @@ function printf(...string)
 			{
 				case "string":
 					string[0]=string[0].replace("%s",string[i].toString())
-					.replace("\n","<br>");
+					.replace(/\n/g,"<br>");
 
 
 				break;
@@ -78,7 +87,7 @@ function printf(...string)
 					.replace("%7f",string[i].toFixed(7))
 					.replace("%8f",string[i].toFixed(8))
 					.replace("%9f",string[i].toFixed(9))
-					.replace("\n","<br>");
+					.replace(/\n/g,"<br>");
 				break;
 			}
 		
