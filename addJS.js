@@ -49,15 +49,4 @@ function addSingleJS(file)
   
 }
 
-function addArrayFromFolder(array,path="./")
-{
-
-    for(let i=0;i<array.length;++i)
-    {
-      document.write("<script type='text/javascript' src='"+path+array[i]+"'><\/script>"); 
-    }
-}
-
-
-
 
