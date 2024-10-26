@@ -1,3 +1,11 @@
+/*function file()
+{
+  let filename="printf.js";
+  document.write("from ''"+filename+"<br>");
+} 
+*/
+
+
 const toFixed = (n, fixed) => `${n}`.match(new RegExp(`^-?\\d+(?:\.\\d{0,${fixed}})?`))[0];
 precision=function(n,fixed)
 {
@@ -14,34 +22,15 @@ return p;
 }
 
 
-function file()
-{
-  let filename="printf.js";
-  document.write("from ''"+filename+"<br>");
-} 
-
-
-
 function println(string="")
 {
 	document.write(string+"<br>");
 }
 
-function print(string="")
+function echo(string="")
 {
 	document.write(string);
 }
-
-function println(string="")
-{
-	document.write(string+"<br>");
-}
-
-function print(string="")
-{
-	document.write(string);
-}
-
 
 function printf(...string)
 {	
