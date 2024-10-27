@@ -29,15 +29,15 @@ function println(string="")
 
 function echo(...string)
 {
-
-	if(string.length==0)
+	let newS="";
+	if(string.length==1)
 	{
-		document.write(string[0]);
+		document.write(string[0].replace(/\n/g,"<br>"));
 	}
 	else
 	{
 		for(let i=0;i<string.length;i++)
-		document.write(string[i]+string[++i]);
+		document.write((string[i++]/*.replace(/\n/g,"<br>")*/+string[i]).replace(/\n/,"<br>"));
 	}
 }
 
