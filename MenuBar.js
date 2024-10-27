@@ -10,12 +10,12 @@ var pageMenu=
   "settings.php":"settings",
 };
 
-
+var subject="suggestion";
 var url=[
   "https://www.facebook.com/"+webPage,
   "https://www.instagram.com/"+webPage,
   "https://mail.yandex.com/?uid=869376094#compose",
-  "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to="+person["email"]+"&su=DenunciaAnimale&body=my-text&ui=2&tf=1&pli=1",
+  "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to="+person["email"]+"&su="+subject+"&body=my-text&ui=2&tf=1&pli=1",
   "https://web.telegram.org",
   "https://www.skype.com",
   "https://chat.whatsapp.com/a"+webPage,
