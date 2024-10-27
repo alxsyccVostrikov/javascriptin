@@ -4,11 +4,12 @@ var person=
     user:"alx",
     email:"alx",
   };
-var glyphicon=
-[
-  ["signup.php","user","sign-in"],
-  ["signin.php","log-in","log-in"],
-];
+var pageMenu=
+{
+  "home.php":"home",
+  "settings.php":"settings",
+};
+
 
 var url=[
   "https://www.facebook.com/"+webPage,
@@ -29,16 +30,15 @@ var url=[
   "http://www.twitter.com/"+webPage
   ];
 
-function CreatingMe(path="./")
+function CreatingMenuBar(path="./")
 {
   document.write("<nav class='navbar navbar-inverse'>");
   document.write("<a class='navbar-brand' onclick='sms()'>"+webpage+"</a>");
   document.write("<ul class='nav navbar-nav'>");    
-  for(let i=0;i<page.length;i++)
-  {
-    document.write("<li><a href='"+path+page[i]+"'>"+page[i]+"</a></li>");  
-    document.write("<li><a href='"+path+glyphicon[i]+"'><span class='glyphicon glyphicon-"+glyphicon[i]+"'></span> "+glyphicon[i]+"</a></li>");
-  }
+  for(let i in pageMenu)
+    {
+       document.write("<li><a href='"+i+"' style='text-decoration:none'>"+pageMenu[i]+"</a></li>");
+    }
   document.write("</ul>");    
 
 }
@@ -51,17 +51,5 @@ function sms(path="./")
 {
   let msg01="developed by";
   alert(msg01+":"+person["name"]+"\nemail:"+person["email"]);
-}
-
-
-
-function Md(path="./")
-{
-  document.write("<ul class='nav navbar-nav navbar-right'>");
-  for(let i=0;i<glyphicon.length;i++)
-    document.write("<li><a href='"+path+glyphicon[i]+"'><span class='glyphicon glyphicon-"+glyphicon[i]+"'></span> "+glyphicon[i]+"</a></li>");
-  document.write("</ul>");
-  document.write("</nav>");
-
 }
 
