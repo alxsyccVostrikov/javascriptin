@@ -1,30 +1,8 @@
-/*function file()
-{
-
-  let filename="settings.js"
-  document.write("from '"+filename+"'");
-}*/
 
 
-icon=[];
-uri=[];
-field=["email","password"];
-page=
-[
-  ["index.php","Initial"],
-  ["sobre.php","About"],
-  ["contato.php","Contact"],
-  ["QuemSomos.php","WhoWeAre"],
-  ["denuncia.php","report"],
-  ["contribuir.php","donate"],
-];
-glyphicon=
-[
-  ["signup.php","user","sign-in"],
-  ["signin.php","log-in","log-in"],
-];
 
-btn_su=["sign-up","success"];
+
+
 webpage="alx";
 person=
 {

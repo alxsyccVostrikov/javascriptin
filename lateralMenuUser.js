@@ -1,19 +1,13 @@
-var lateralMenuPage=["LoginUser.php","fa-home","Inicio"];
-var lateralMenuName=["LoginUser.php","fa-home","Inicio"];
-var lateralMenuIcon=[
-["LoginUser.php","fa-home","Inicio"],
-["#","fa-envelope","Menssagem"],
-["#","fa-power-off","Perfil"],
-["#","fa-home","Denúncias"],
-["#","fa-envelope","Cionfiguração"],
-["#","fa-home","Contato"],
-["#","fa-envelope","Networking"],
-["#","fa-power-off","Estátisticas"],
-//["fa-home","Inicio"],
-//["fa-envelope","Menssagem"],
-["../../index.php","fa-power-off","Sair"],
-];
-
+var lm=5;
+var page=
+{
+  "index.php":"Initial",
+  "About.php":"About",
+  "Contact.php":"Contact",
+  "WhoWeAre.php":"WhoWeAre",
+  "report.php":"report",
+  "donate.php":"donate",
+};
 
 function setCss()
 {
@@ -38,8 +32,10 @@ function MenuLateralUser()
     document.write("<nav class='navbar navbar-inverse sidebar' role='navigation'>");
     document.write("<div class='collapse navbar-collapse' id='bs-sidebar-navbar-collapse-1'>");
 	document.write("<ul class='nav navbar-nav'>");
-    for(let i=0;i<lateralMenuPage.length;i++)
-        document.write("<li><a href='"+lateralMenuPage[i]+"'><span style='font-size:14px;' class='fa "+lateralMenuIcon[i]+"'> "+lateralMenuName[i]+"</span></a></li>");
+    for(let i in page)
+    {
+       document.write("<li><a href='"+i+"' style='text-decoration:none'>"+page[i]+"</a></li>");
+    }
     document.write("</ul>");
 	document.write("</div>");
     document.write("</nav>");	

@@ -1,3 +1,10 @@
+var field=["email","password"];
+var btn_su=["sign-up","success"];
+var glyphicon=
+[
+  ["signin.php","log-in","log-in"],
+];
+
 function CreatinInputSigin()
 {
   //document.write("<style>.btn {width: 100%;padding: 12px;border: none;border-radius: 4px;margin: 5px 0;opacity: 0.85;display: inline-block;font-size: 17px;line-height: 20px;text-decoration: none;background:green;}</style>");

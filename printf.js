@@ -29,15 +29,15 @@ function println(string="")
 
 function echo(...string)
 {
-	let newS="";
 	if(string.length==1)
 	{
-		document.write(string[0].replace(/\n/g,"<br>"));
+		let newS=string[0].replace(/\n/g,"<br>");
+		document.write(newS);
 	}
 	else
 	{
 		for(let i=0;i<string.length;i++)
-		document.write((string[i++]/*.replace(/\n/g,"<br>")*/+string[i]).replace(/\n/,"<br>"));
+		document.write((string[i++].replace(/\n/g,"<br>")+string[i])/*.replace(/\n/,"<br>")*/);
 	}
 }
 
@@ -47,9 +47,7 @@ function printf(...string)
 	let newS="";
 	if(string.length==1)
 	{
-		newS=string[0]
-		.replace("\n","<br>");
-		document.write(newS);
+		newS=string[0].replace(/\n/g,"<br>");
 	}
 	else
 	{
@@ -93,9 +91,9 @@ function printf(...string)
 		
 		}
 		newS=string[0]+"";
-		document.write(newS);
 	}
-
+	document.write(newS);
+	
 		
 }
 

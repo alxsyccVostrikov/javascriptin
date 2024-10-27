@@ -1,7 +1,12 @@
-let h1="signUP";
-let msg01="to signIN in our platform read our terms to use it ";
-let msg02="fill out fields above";
-
+var field=["email","password"];
+var btn_su=["sign-up","success"];
+var h1="signUP";
+var msg01="to signIN in our platform read our terms to use it ";
+var msg02="fill out fields above";
+var glyphicon=
+[
+  ["signup.php","user","sign-up"],
+];
 
 function CreatinInputSignupMenu()
 {  
