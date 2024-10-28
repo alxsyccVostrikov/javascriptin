@@ -4,7 +4,7 @@ function file()
   document.write("from ''"+filename+"<br>");
 } 
 
-function bubleSort(array) 
+function bubbleSort(array) 
 {
   let temp=""; 
   
@@ -24,7 +24,7 @@ function bubleSort(array)
   return array;
 }
 
-function keepBubbleSortTo(array)
+function keepBubbleSortFrom(array)
 {
 	let arrayCopy=[...array];
 	for(i=0;i<array.length;i++)
@@ -46,7 +46,7 @@ function keepBubbleSortTo(array)
 }
 
 
-function keepBubbleSorFrom(array)
+function bubbleSortTo(array)
 {
 	let arrayCopy=[...array];
 	let arrayBCK=[...array];
