@@ -4,7 +4,7 @@ function file()
   document.write("from ''"+filename+"<br>");
 } 
 
-function boobleSort(array) 
+function bubleSort(array) 
 {
   let temp=""; 
   
@@ -14,11 +14,50 @@ function boobleSort(array)
     {
       if(array[j]>array[i])
       {
-        document.write(array[j]+" bigger than "+array[i]+"<br>")
         temp=array[j];
         array[j]=array[i];
         array[i]=temp;
-        document.write(...array);
+      }
+        
+    }
+  }
+  return array;
+}
+
+function keepSort(array)
+{
+	let arrayCopy=[...array];
+	for(i=0;i<array.length;i++)
+  {
+    for(j=0;j<array.length;j++)
+    {
+      if(array[j]>array[i])
+      {
+        temp=array[j];
+        array[j]=array[i];
+        array[i]=temp;
+      }
+        
+    }
+  }
+  
+  return arrayCopy;
+
+}
+
+function backBubleSort(array) 
+{
+  let temp=""; 
+  
+  for(i=0;i<array.length;i++)
+  {
+    for(j=0;j<array.length;j++)
+    {
+      if(array[j]<array[i])
+      {
+        temp=array[j];
+        array[j]=array[i];
+        array[i]=temp;
       }
         
     }
