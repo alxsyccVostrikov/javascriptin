@@ -24,7 +24,7 @@ function bubleSort(array)
   return array;
 }
 
-function keepBubbleSort(array)
+function keepBubbleSortTo(array)
 {
 	let arrayCopy=[...array];
 	for(i=0;i<array.length;i++)
@@ -44,6 +44,31 @@ function keepBubbleSort(array)
   return arrayCopy;
 
 }
+
+
+function keepBubbleSorFrom(array)
+{
+	let arrayCopy=[...array];
+	let arrayBCK=[...array];
+	for(i=0;i<array.length;i++)
+  {
+    for(j=0;j<arrayBCK.length;j++)
+    {
+      if(arrayBCK[j]>arrayBCK[i])
+      {
+        temp=arrayBCK[j];
+        arrayBCK[j]=arrayBCK[i];
+        arrayBCK[i]=temp;
+      }
+        
+    }
+    array=arrayCopy;
+  }
+  
+  return arrayBCK;
+
+}
+
 
 function backBubleSort(array) 
 {
