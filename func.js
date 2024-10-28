@@ -24,7 +24,7 @@ function bubleSort(array)
   return array;
 }
 
-function keepSort(array)
+function keepBubbleSort(array)
 {
 	let arrayCopy=[...array];
 	for(i=0;i<array.length;i++)
