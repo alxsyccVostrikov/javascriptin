@@ -1,7 +1,7 @@
-		var dict=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','s','u','v','w','x','y','z',
-				'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','S','U','V','W','X','Y','Z',
-				".","@","#","\,"
-				];
+        var dict=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','s','u','v','w','x','y','z',
+                'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','S','U','V','W','X','Y','Z',
+                ".","@","#","\,"
+                ];
 
 //var word="";
 var ListHash={"kindaHASH":[],"hash":[],"function":[]};
@@ -9,7 +9,7 @@ var hx=["md5","sha1","sha256","sha512"];
 var fun=[md5(),sha1(),sha256(),sha512()];
 var setFunc={"md5":setMd5(),"sha1":setSha1(),"sha256":setSha256(),"sha512":setSha512()};
 //var getFunc={"md5":getMd5(word),"sha1":getSha1(word),"sha256":getSha256(word),"sha512":getSha512(word)};
-			
+            
 
 
 var pvr="";
@@ -38,31 +38,31 @@ function file()
 
 function description()
 {
-	for(let i=0;i<hx.length;++i)
-	{
-		println(hx[i]+":"+fun[i].length);
-	}
+    for(let i=0;i<hx.length;++i)
+    {
+        println(hx[i]+":"+fun[i].length);
+    }
 }
 
 function has(hash="",word="")
 {
-	let hsh=hash;
-	let wrd=word;
-	switch(hsh)
-	{
-		case "md5":
-			return md5(wrd);
-		break;
-		case "sha1":
-			return sha1(wrd);
-		break;
-		case "sha256":
-			return sha256(wrd);
-		break;
-		case "sha512":
-			return sha512(wrd);
-		break;
-	}
+    let hsh=hash;
+    let wrd=word;
+    switch(hsh)
+    {
+        case "md5":
+            return md5(wrd);
+        break;
+        case "sha1":
+            return sha1(wrd);
+        break;
+        case "sha256":
+            return sha256(wrd);
+        break;
+        case "sha512":
+            return sha512(wrd);
+        break;
+    }
 }
 
 
@@ -70,109 +70,109 @@ function has(hash="",word="")
 
 function getDescriptionFromAWord(cryptWord)
 {
-	let  crpt_wrd=cryptWord;
-	let cryptWordSize=crpt_wrd.length;
-	for(let i=0;i<hx.length;++i)
-	{
-		switch(crpt_wrd.length)
-		{
-			case has(hx[i],hx[i],hx[i]).length:	
-				return (hx[i]+":"+cryptWordSize);
-			break;
-		}
-		 		
-	}
+    let  crpt_wrd=cryptWord;
+    let cryptWordSize=crpt_wrd.length;
+    for(let i=0;i<hx.length;++i)
+    {
+        switch(crpt_wrd.length)
+        {
+            case has(hx[i],hx[i],hx[i]).length: 
+                return (hx[i]+":"+cryptWordSize);
+            break;
+        }
+                
+    }
 }
 
 
 function hass(hash="",word="")
 {
-	let hsh=hash;
-	let wrd=word;
-	let getFunc={"md5":getMd5(wrd),"sha1":getSha1(wrd),"sha256":getSha256(wrd),"sha512":getSha512(wrd)};
-	for(let i=0;i<hx.length;++i)
-		switch(hsh)
-		{
-			case hx[i]:
-				return getFunc[hx[i]];
-			break;
-		}
+    let hsh=hash;
+    let wrd=word;
+    let getFunc={"md5":getMd5(wrd),"sha1":getSha1(wrd),"sha256":getSha256(wrd),"sha512":getSha512(wrd)};
+    for(let i=0;i<hx.length;++i)
+        switch(hsh)
+        {
+            case hx[i]:
+                return getFunc[hx[i]];
+            break;
+        }
 }
 
 
 
 function gen_has(hash)
 {
-	let hsh=hash;
-	for(let i=0;i<hx.length;++i)
-		switch(hsh)
-		{
-			case hx[i]:
-				return fun[i];
-			break;
-		}
+    let hsh=hash;
+    for(let i=0;i<hx.length;++i)
+        switch(hsh)
+        {
+            case hx[i]:
+                return fun[i];
+            break;
+        }
 }
 
 
-		
-	
+        
+    
 
 function decrypt(hash,cryptWord)
 {
-	let hsh=hash;
-	let crpt_wrd=cryptWord;
-	for(let i=0;i<hx.length;++i)
-	switch(hx[i])
-	{
-		case hsh:
-		for(let i=0;i<word.length;++i)
-		{
-			let newHx=has(hsh,word[i]);
-			if(newHx==crpt_wrd)
-				return word[i];
-		}
-		break;
-	}
+    let hsh=hash;
+    let crpt_wrd=cryptWord;
+    for(let i=0;i<hx.length;++i)
+    switch(hx[i])
+    {
+        case hsh:
+        for(let i=0;i<word.length;++i)
+        {
+            let newHx=has(hsh,word[i]);
+            if(newHx==crpt_wrd)
+                return word[i];
+        }
+        break;
+    }
 }
 
 
 function dec(cryptWord)
 {
-	let=kinda="kindaHASH";
-	let crpt_wrd=cryptWord;
-	for(let i=0;i<fun.length;++i)
-		switch(fun[i].length)
-		{
-			case crpt_wrd.length:
-			for(let i=0;i<word.length;++i)
-			{
-				let newHx=has(getHashName(crpt_wrd),word[i]);
-				if(newHx==crpt_wrd)
-				{
-					return word[i];
-				}
-			}
-			break;
-		}
+    let=kinda="kindaHASH";
+    let crpt_wrd=cryptWord;
+    for(let i=0;i<fun.length;++i)
+        switch(fun[i].length)
+        {
+            case crpt_wrd.length:
+            for(let i=0;i<word.length;++i)
+            {
+                let newHx=has(getHashName(crpt_wrd),word[i]);
+                if(newHx==crpt_wrd)
+                {
+                    return word[i];
+                }
+            }
+            break;
+        }
 }
 
 
 function whoami(hash)
 {
-	for(let i=0;i<fun.length;++i)
-	{
-		let x=hash.length;
-		let session=(x/fun[i].length);
-		for(let j=0;j<session;++j)
-		{
-			x-=fun[i].length;		
-			if(x==0)
-			{
-				ListHash["kindaHASH"].push(hx[i]);
-				println("resto 0:::::"+hx[i]);
-			}
-		}
-	}
+    for(let i=0;i<fun.length;++i)
+    {
+        let x=hash.length;
+        let session=(x/fun[i].length);
+        for(let j=0;j<session;++j)
+        {
+            x-=fun[i].length;       
+            if(x==0)
+            {
+                ListHash["kindaHASH"].push(hx[i]);
+                println("resto 0:::::"+hx[i]);
+            }
+        }
+    }
 }
 
 
@@ -180,35 +180,35 @@ function whoami(hash)
 
 function getHashName(hash)
 {
-	for(let i=0;i<hx.length;++i)
-		if(fun[i].length==hash.length)
-			return hx[i];
+    for(let i=0;i<hx.length;++i)
+        if(fun[i].length==hash.length)
+            return hx[i];
 }
 
 
 
 function findHashFromList(hash,webP_ctp)
 {
-	for(let i=0;i<hx.length;++i)
-		if(hash==hx[i])
-			hash=fun[i];
+    for(let i=0;i<hx.length;++i)
+        if(hash==hx[i])
+            hash=fun[i];
 
-	let x=hash.length;
-	let wb=webP_ctp.length;
-	let s=wb/x;
-	let z=hash.length;;
-	let y=hash.length;
-	let index=0;
-	while(s>0)
-	{
-		println("hash:"+getHashName(hash)+"___CHARS:"+hash.length);
-		println(webP_ctp.slice(index,z));
-		ListHash["hash"].push(webP_ctp.slice(index,z));				
-		index+=y;
-		z+=y;
-		--s;
-	}
+    let x=hash.length;
+    let wb=webP_ctp.length;
+    let s=wb/x;
+    let z=hash.length;;
+    let y=hash.length;
+    let index=0;
+    while(s>0)
+    {
+        println("hash:"+getHashName(hash)+"___CHARS:"+hash.length);
+        println(webP_ctp.slice(index,z));
+        ListHash["hash"].push(webP_ctp.slice(index,z));             
+        index+=y;
+        z+=y;
+        --s;
+    }
 
 }
 
-	
+    
