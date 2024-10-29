@@ -7,17 +7,26 @@ var subject="";
 var choice="";
 var emailPatterm=/\w+\@+\w+\.[aA-zZ]{2,4}$/;
 //var emailPatterm=/[0-9]$/;
+var data={
+	"email":[],
+	"password":[],
+};
 
 
 
-function fillUOUT()
+
+function fillUOUT(id_EMAIL,id_PASSWORD)
 {
 
-
+	document.getElementById(id_EMAIL).value(data["email"][0]);
+	document.getElementById(id_EMAIL).value(data["email"][0]);
 }
 
-function saveData()
+function saveData(email,password)
 {
+
+	data["email"].push(email);
+	data["password"].push(password);
 
 }
 
@@ -42,8 +51,10 @@ function randomEmailAdressFrom(domain)
 
 function randomPAssowrd()
 {
-
-	return Math.random().toString(36).slice(-8);
+	let password="";
+	for(let i=0;i<=4;++i)
+		password+=Math.random().toString(36).slice(-8);
+	return password;
 }
 
 function isaValidEmail(email)
@@ -65,9 +76,4 @@ function openMailBox(domain)
 }
 
 
-function getEmailSize(email)
-{
-
-	return email.length;
-}
 
