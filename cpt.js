@@ -6,8 +6,6 @@ var dict=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r
 var ListHash={"kindaHASH":[],"hash":[],"function":[]};
 var hx=["md5","sha1","sha256","sha512"];
 var fun=[md5(),sha1(),sha256(),sha512()];
-var setFunc={"md5":setMd5(),"sha1":setSha1(),"sha256":setSha256(),"sha512":setSha512()};
-//var getFunc={"md5":getMd5(word),"sha1":getSha1(word),"sha256":getSha256(word),"sha512":getSha512(word)};
             
 
 
