@@ -1,3 +1,10 @@
+function isitWorkin(file)
+{
+
+ // return if(file==true);
+}
+
+
 function printFiles(array)
 {
   for(let i in array)
@@ -42,11 +49,9 @@ for(let i=0;i<params.length;i++)
 }
 
 
-function addSingleJS(file)
+function addJS(file)
 {
-    document.write("<script type='text/javascript' src='"+file+"'><\/script>");
+    document.write("<script type=\"text/javascript\" src=\""+file+"\"><\/script>");
 
   
 }
-
-
