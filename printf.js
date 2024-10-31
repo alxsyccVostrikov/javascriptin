@@ -27,6 +27,11 @@ function println(string="")
 	document.write(string+"<br>");
 }
 
+function print_(string="")
+{
+	document.write(string);
+}
+
 function echo(...string)
 {
 	if(string.length==1)
