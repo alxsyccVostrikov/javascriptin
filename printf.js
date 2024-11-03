@@ -34,10 +34,25 @@ function print_(string="")
 
 function echo(...string)
 {
+
+	//let br="";
 	if(string.length==1)
 	{
-		let newS=string[0].replace(/\n/g,"<br>");
-		document.write(newS);
+		if(string[0]=="\n")
+		{
+			document.write(string[0].replace(/\n/g,"<br>"));
+			/*
+			for(let i=1;i<=string[0].length;++i)
+			{			
+				br+="<br>";
+				document.write(br);
+			}
+			*/
+		}
+		else
+		{
+			document.write(string[0].replace(/\n/g,"<br>"));
+		}
 	}
 	else
 	{
