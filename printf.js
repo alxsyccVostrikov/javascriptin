@@ -35,19 +35,11 @@ function print_(string="")
 function echo(...string)
 {
 
-	//let br="";
 	if(string.length==1)
 	{
 		if(string[0]=="\n")
 		{
 			document.write(string[0].replace(/\n/g,"<br>"));
-			/*
-			for(let i=1;i<=string[0].length;++i)
-			{			
-				br+="<br>";
-				document.write(br);
-			}
-			*/
 		}
 		else
 		{
@@ -56,8 +48,8 @@ function echo(...string)
 	}
 	else
 	{
-		for(let i=0;i<string.length;i++)
-		document.write((string[i++].replace(/\n/g,"<br>")+string[i])/*.replace(/\n/,"<br>")*/);
+		for(let i=0;i<string.length;++i)
+		document.write((string[i].replace(/\n/g,"<br>")+string[++i]).replace(/\n/g,"<br>"));
 	}
 }
 
