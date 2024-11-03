@@ -48,8 +48,13 @@ function echo(...string)
 	}
 	else
 	{
+		let newS="";
 		for(let i=0;i<string.length;++i)
-		document.write((string[i].replace(/\n/g,"<br>")+string[++i]).replace(/\n/g,"<br>"));
+		{
+			newS+=string[i];
+			newS=newS.replace(/\n/g,"<br>");
+		}
+		document.write(newS);
 	}
 }
 
