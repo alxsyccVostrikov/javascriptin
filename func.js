@@ -1,9 +1,3 @@
-function file()
-{
-  let filename="func.js";
-  document.write("from ''"+filename+"<br>");
-} 
-
 function bubbleSort(array) 
 {
   let temp=""; 
@@ -433,4 +427,24 @@ document.getElementById("password-repeat").value="";
 
 
 
+function br(times=1)
+{
 
+	for(let i=1;i<=times;++i)
+		document.write("<br>");	
+}
+
+
+
+function whatisThat(watisthat)
+{
+
+	if(watisthat[0]==undefined)
+	{
+		return "object";
+	}
+	else
+	{
+		return "array";
+	}
+}
