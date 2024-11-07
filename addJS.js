@@ -60,7 +60,8 @@ function addJS(file)
 function add(argument)
 {
   let x=typeof(argument);
- // let y=Object.keys(argument).length || argument.length; 
+  let y=Object.keys(argument).length;
+ 
   if(x=="string")
   {
     document.write("<script type='text/javascript' src='"+argument+"'><\/script>");
@@ -68,7 +69,7 @@ function add(argument)
   else 
   {
     for(let i in argument)
-    document.write("<script type='text/javascript' src='"+argument[i]+"'><\/script>");
+    document.write("<script type='text/javascript' src='"+i+"'><\/script>");
   }
 
 }
