@@ -3,16 +3,15 @@ function init(lang)
 
 	let row=20;
 	let cols=50;
-	document.write("jTx<br>"+
-				"paste your code bellow and switch what lang's gonna convert to"+
-				"<br>"+
-				"<textarea id='codejtxFROM' rows='"+row+"' cols='"+cols+"' placeholder='JS code here...'>"+
-				"</textarea>"+
-				"<textarea id='codejtxTO' rows='"+row+"' cols='"+cols+"' readonly>"+
-				"</textarea>"+
-				"<br>"+
-				"<button onclick=jtx('"+lang+"')>convert TO:"+lang+"</button>"
-				);
+	document.write("<h1>jTx</h1>"+
+	"<h3>paste your code bellow and switch what lang's gonna convert to</h3>"+
+	"<textarea id='codejtxFROM' rows='"+row+"' cols='"+cols+"' placeholder='JS code here...'>"+
+	"</textarea>"+
+	"<textarea id='codejtxTO' rows='"+row+"' cols='"+cols+"' placeholder='"+lang+" Code here...' readonly>"+
+	"</textarea>"+
+	"<br>"+
+	"<button onclick=jtx('"+lang+"')>convert TO:"+lang+"</button>"
+	);
 }
 
 function jtx(lang) 
@@ -20,25 +19,28 @@ function jtx(lang)
 	let newS=document.getElementById("codejtxFROM").value;
 	let tag=
 	{
-		"js":[/document.write/gi,/let/gi,/var/gi],
-		"php":["echo","\$","\$"],
-		"java":["system.out.println","String","String"],
+		"js":[/document.write/gi,/let/gi,/var/gi,/function/],
+		"bash":["echo"],
+		"batch":["echo"],
+		"c":["printf","string","string","function"],
+		"c++":["stdout"],
+		"cmd":["echo"],
+		"huskel":[],
+		"java":["system.out.println","String","String","public void"],
+		"jsp":["system.out"],
+		"kotlen":[],
+		"php":["echo","\$","\$","function"],
+		"python":["print","def","def","def"],
+
 
 	};
 	let tgs=Object.keys(tag).length;
-	switch(lang)
+	for(let i=0;i<tag[lang].length;++i)
 	{
-		case lang:
-			for(let i=0;i<tag[lang].length;++i)
-			{
-				newS=newS.replace(tag["js"][i],tag[lang][i]);
-				//newS=newS.replace(" ","")
-				//.replace("\;","<br>");
-			}
-			document.getElementById("codejtxTO").value=newS;
-		break;
+		newS=newS.replace(tag["js"][i],tag[lang][i]);
+		//newS=newS.replace(" ","")
 	}
-	
+	document.getElementById("codejtxTO").value=newS;
 }
 
 
