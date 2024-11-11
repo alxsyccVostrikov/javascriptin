@@ -1,9 +1,19 @@
-function isitWorkin(file)
-{
-
- // return if(file==true);
-}
-
+/*
+---
+---  print files they are gonna be imported
+---
+*/
+/*
+Code...
+ let files=["addJS.js","printf.js","cpt.js"];
+ printFiles(files);
+*/
+/*
+result...
+addJS.js
+printf.js
+cpt.js
+*/
 
 function printFiles(array)
 {
@@ -15,7 +25,29 @@ function printFiles(array)
   }
 }
 
+/*
+---
+--- add files from a obj
+---
+*/
 
+/*
+Code
+ let files={
+          "addJS.js":"",
+          "printf.js":"",
+          "cpt.js":"",
+          };
+
+         addFromObject(files);
+*/
+
+/*
+result...
+ document.write("<script type='text/javascript' src='addJS.js'><\/script>");
+ document.write("<script type='text/javascript' src='printf.js'><\/script>");
+ document.write("<script type='text/javascript' src='cpt.js'><\/script>");
+*/
 function addFromObject(obj)
 {
   
