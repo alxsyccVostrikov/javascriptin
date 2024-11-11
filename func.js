@@ -1,9 +1,26 @@
 /*
-bubble sort and return a sorted array 
+----------------------------------------------------------------------------------------------
+---bubble sort and return a sorted array 
 original array is modified and new array too
 
 two sorted array
 */
+
+/*
+Code...
+let ar=[e,f,d,c,a,b];
+let ar02=[];
+
+ar02=bubbleSort(ar);
+*/
+
+/*
+result...
+ar=[a,b,c,d,e,f];
+ar02=[a,b,c,d,e,f];
+
+*/
+
 function bubbleSort(array) 
 {
   let temp=""; 
@@ -26,8 +43,26 @@ function bubbleSort(array)
 
 
 /*
-return backuped up original array  and modify struture the original array 
+----------------------------------------------------------------------------------------------
+---return backuped up original array  and modify struture of the 1st array 
+---
 */
+
+/*
+Code...
+let ar=[e,f,d,c,a,b];
+let ar02=[];
+
+ar02=keepArrayFromBubbleSort(ar);
+*/
+
+/*
+result...
+ar=[a,b,c,d,e,f];
+ar02=[e,f,d,c,a,b];
+
+*/
+
 function keepArrayFromBubbleSort(array)
 {
 	let arrayCopy=[...array];
@@ -49,9 +84,26 @@ function keepArrayFromBubbleSort(array)
 
 }
 
-/*
-return sorted array and keep struture the original array 
+/*--------------------------------------------------------------------------------------------
+---return sorted array and keep struture of the 1st array 
+---
 */
+
+
+/*
+Code...
+let ar=[e,f,d,c,a,b];
+let ar02=[];
+
+ar02=keepArrayFromBubbleSort(ar);
+*/
+
+/*
+result...
+ar=[e,f,d,c,a,b];
+ar02=[a,b,c,d,e,f];
+*/
+
 function bubbleSortFrom(array)
 {
 	let arrayCopy=[...array];
@@ -75,9 +127,25 @@ function bubbleSortFrom(array)
 
 }
 
-/*
-bubble sort backward
+/*--------------------------------------------------------------------------------------------
+---bubble sort backward
+---
 */
+/*
+Code...
+let ar=[e,f,d,c,a,b];
+let ar02=[];
+
+ar02=backBubleSort(ar);
+*/
+
+/*
+result...
+ar=[f,e,d,c,b,a];
+ar02=[f,e,d,c,b,a];
+
+*/
+
 function backBubleSort(array) 
 {
   let temp=""; 
@@ -99,9 +167,11 @@ function backBubleSort(array)
 }
 
 
-/*
-creat tab on page
+/*--------------------------------------------------------------------------------------------
+---create tab
+---
 */
+
 function tab(times=1)
 {
 	let t=" ";
@@ -114,7 +184,7 @@ function tab(times=1)
 }
 
 
-/*
+/*--------------------------------------------------------------------------------------------
 check if it's or not a Decimal number
 */
 function isDecimal(char)
