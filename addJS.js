@@ -3,14 +3,15 @@
 ---  print files they are gonna be imported
 ---
 */
+
 /*
 Code...
- let files=["addJS.js","printf.js","cpt.js"];
+ let files=["printf.js","cpt.js"];
  printFiles(files);
 */
+
 /*
 result...
-addJS.js
 printf.js
 cpt.js
 */
@@ -25,8 +26,9 @@ function printFiles(array)
   }
 }
 
+
 /*
----
+-----------------------------------------------------------------------------------------------
 --- add files from a obj
 ---
 */
@@ -34,7 +36,6 @@ function printFiles(array)
 /*
 Code
  let files={
-          "addJS.js":"",
           "printf.js":"",
           "cpt.js":"",
           };
@@ -44,7 +45,6 @@ Code
 
 /*
 result...
- document.write("<script type='text/javascript' src='addJS.js'><\/script>");
  document.write("<script type='text/javascript' src='printf.js'><\/script>");
  document.write("<script type='text/javascript' src='cpt.js'><\/script>");
 */
@@ -58,6 +58,28 @@ function addFromObject(obj)
 
 }
 
+/*
+-----------------------------------------------------------------------------------------------
+--- add files from an array
+---
+*/
+
+/*
+Code
+ let files=[
+          "printf.js",
+          "cpt.js",
+          ];
+
+         addFromObject(files);
+*/
+
+/*
+result...
+ document.write("<script type='text/javascript' src='printf.js'><\/script>");
+ document.write("<script type='text/javascript' src='cpt.js'><\/script>");
+
+*/
 
 function addJSFromArray(array,path="./")
 {
@@ -70,6 +92,23 @@ function addJSFromArray(array,path="./")
   
 }
 
+/*
+-----------------------------------------------------------------------------------------------
+--- add files from params
+---
+*/
+
+/*
+Code...
+  addJSFromParam("printf.js","cpt.js");
+*/
+
+/*
+result...
+ document.write("<script type='text/javascript' src='printf.js'><\/script>");
+ document.write("<script type='text/javascript' src='cpt.js'><\/script>");
+
+*/
 
 function addJSFromParam(...params)
 {
@@ -80,28 +119,91 @@ for(let i=0;i<params.length;i++)
   
 }
 
+/*
+-----------------------------------------------------------------------------------------------
+--- add single files each one
+---
+*/
 
-function addJS(file)
+/*
+Code...
+  let file01="cpt.js";
+  let file02="printf.js";
+  addSingleJSF(file01);
+  addSingleJSF(file02);
+*/
+
+/*
+result...
+ document.write("<script type='text/javascript' src='printf.js'><\/script>");
+ document.write("<script type='text/javascript' src='cpt.js'><\/script>");
+
+*/
+
+function addSingleJSF(file)
 {
     document.write("<script type=\"text/javascript\" src=\""+file+"\"><\/script>");
 
   
 }
 
+/*
+-----------------------------------------------------------------------------------------------
+--- add files undepends on which type of var is..obj,array or single file
+---
+*/
 
-function add(argument)
+/*
+Code...
+  let file01="cpt.js";
+  let file02="printf.js";
+  add(file01);
+  add(file02);
+
+  
+  let f1=["cpt.js","printf.js"];
+  add(f1);
+
+  let f2={"cpt.js":"","printf.js":"",};
+  add(f2)
+
+
+  add("cpt.js","printf.js");
+*/
+
+/*
+result...
+ document.write("<script type='text/javascript' src='printf.js'><\/script>");
+ document.write("<script type='text/javascript' src='cpt.js'><\/script>");
+
+*/
+
+function add(...argument)
 {
+
   let x=typeof(argument);
   let y=Object.keys(argument).length;
- 
-  if(x=="string")
-  {
-    document.write("<script type='text/javascript' src='"+argument+"'><\/script>");
-  }
-  else 
+  
+  if(y==1)
   {
     for(let i in argument)
-    document.write("<script type='text/javascript' src='"+i+"'><\/script>");
+    {
+      if(argument[i]=="[object Object]")
+      {
+        document.write("<script type='text/javascript' src='"+Object.keys(argument[i])+"'><\/script>");
+      }
+      else
+      {
+        document.write("<script type='text/javascript' src='"+argument[i]+"'><\/script>");
+      }
+    }
+
+  }
+  else if(y>1)
+  {
+    for(let i in argument)
+      document.write("<script type='text/javascript' src='"+argument[i]+"'><\/script>");
   }
 
+  
 }
