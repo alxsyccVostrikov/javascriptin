@@ -197,14 +197,28 @@ function add(...argument)
     else
     {
       let nobj=argument[index];
-      for(let i in nobj)
+      let unknow=argument[index][index].length;
+      if(unknow==1)
       {
-        document.write("<script type='text/javascript' src='"+nobj[i]+"'><\/script>");
+        for(let i in argument)
+        {
+          document.write("<script type='text/javascript' src='"+argument[i]+"'><\/script>");
+        }
+      
       }
+      else
+      {
+        for(let i in nobj)
+        {
+          document.write("<script type='text/javascript' src='"+nobj[i]+"'><\/script>");
+        }
+      }
+
+
     }
   }
   
-  else if(y>1)
+  else
   {
     for(let i in argument)
       document.write("<script type='text/javascript' src='"+argument[i]+"'><\/script>");
