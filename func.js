@@ -1,3 +1,9 @@
+/*
+bubble sort and return a sorted array 
+original array is modified and new array too
+
+two sorted array
+*/
 function bubbleSort(array) 
 {
   let temp=""; 
@@ -18,6 +24,10 @@ function bubbleSort(array)
   return array;
 }
 
+
+/*
+return backuped up original array  and modify struture the original array 
+*/
 function keepArrayFromBubbleSort(array)
 {
 	let arrayCopy=[...array];
@@ -39,7 +49,9 @@ function keepArrayFromBubbleSort(array)
 
 }
 
-
+/*
+return sorted array and keep struture the original array 
+*/
 function bubbleSortFrom(array)
 {
 	let arrayCopy=[...array];
@@ -63,7 +75,9 @@ function bubbleSortFrom(array)
 
 }
 
-
+/*
+bubble sort backward
+*/
 function backBubleSort(array) 
 {
   let temp=""; 
@@ -84,6 +98,10 @@ function backBubleSort(array)
   return array;
 }
 
+
+/*
+creat tab on page
+*/
 function tab(times=1)
 {
 	let t=" ";
@@ -95,6 +113,10 @@ function tab(times=1)
 	return t;
 }
 
+
+/*
+check if it's or not a Decimal number
+*/
 function isDecimal(char)
 {
 	let pattern = /\d\.\d/;
@@ -105,6 +127,10 @@ function isDecimal(char)
 	}
 }
 
+
+/*
+check if it's or not a INT
+*/
 function isINT(char)
 {
 	let pattern = /[0-9]/;
@@ -120,6 +146,9 @@ function isINT(char)
 }
 
 
+/*
+return if yes or false for a found char
+*/
 function findx(variable,char)
 {
 	for(let i in variable)
@@ -133,6 +162,10 @@ function findx(variable,char)
         }
 }
 
+
+/*
+return which one is the type of
+*/
 function TypeOfVar(char)
 {
 	if(isDecimal(char) == true )
@@ -146,6 +179,10 @@ function TypeOfVar(char)
 }
 
 
+
+/*
+forEACH backward
+*/
 function fori(param,opt="") 
 {
 	if(typeof param == "number")
@@ -169,57 +206,9 @@ function fori(param,opt="")
 	return ar;
 }
 
-
-function  cleanWord(word){
-  return word
-  .replace(/á|à|ã|â|ä|Á|À|Ã|Â|Ä/,"a")
-  .replace(/é|è|ẽ|ê|ë|É|È|Ê|Ë/,"e")
-  .replace(/í|ì|ĩ|î|ï|Í|Ì|Î|Ï/,"i")
-  .replace(/ó|ò|õ|ô|ö|Ó|Ò|Õ|ö|Ó|Ò|Ô|Ö/,"o")
-  .replace(/ú|ù|ũ|û|ü|Ú|Ù|ü/,"u")
-  .replace(/ḉ|ç|Ç/,"c");
-}
-
-
-function cleanWord02(string)
-{
-	let a=/[áÁàÀâÂäÄãÃ]/gi;
-	let e=/[éÉèÈêÊëË]/gi;
-	let i=/[íÍìÌïÏîÎ]/gi;
-	let o=/[óÓõÕöÖôô]/gi;
-	let u=/[úÚùÙüÜûÛ]/gi;
-	
-	let digit=/[0-9]/gi;
-	let special=/[\!\@\#\$\%\¨\&\*\(\)\_\-\+\=\`\´\{\\\[\}\]\^\~\|\,\.\:\;\/\?]/gi;
-	
-	regex=
-	{
-	"a":a,
-	"e":e,
-	"i":i,
-	"o":o,
-	"u":u,
-	};
-	
-	let cw="";
-	cw=string;
-	for(let i in regex)
-		cw=cw.replace(regex[i],i);
-	return cw;
-}
-
-
-function getFields(obj)
-{
-	let ar=[];
-	for(let i in obj)
-	{
-		ar.push(i);
-	}
-	return ar;
-}
-
-
+/*
+foreach backward 02
+*/
 function irof(param,opt="")
 {
 	if(typeof param=="number")
@@ -263,7 +252,67 @@ function irof(param,opt="")
 	return ar;
 }
 
+/*
+remove special chars from a word
+*/
+function  cleanWord(word){
+  return word
+  .replace(/á|à|ã|â|ä|Á|À|Ã|Â|Ä/,"a")
+  .replace(/é|è|ẽ|ê|ë|É|È|Ê|Ë/,"e")
+  .replace(/í|ì|ĩ|î|ï|Í|Ì|Î|Ï/,"i")
+  .replace(/ó|ò|õ|ô|ö|Ó|Ò|Õ|ö|Ó|Ò|Ô|Ö/,"o")
+  .replace(/ú|ù|ũ|û|ü|Ú|Ù|ü/,"u")
+  .replace(/ḉ|ç|Ç/,"c");
+}
 
+/*
+remove special chars from a word
+*/
+function cleanWord02(string)
+{
+	let a=/[áÁàÀâÂäÄãÃ]/gi;
+	let e=/[éÉèÈêÊëË]/gi;
+	let i=/[íÍìÌïÏîÎ]/gi;
+	let o=/[óÓõÕöÖôô]/gi;
+	let u=/[úÚùÙüÜûÛ]/gi;
+	
+	let digit=/[0-9]/gi;
+	let special=/[\!\@\#\$\%\¨\&\*\(\)\_\-\+\=\`\´\{\\\[\}\]\^\~\|\,\.\:\;\/\?]/gi;
+	
+	regex=
+	{
+	"a":a,
+	"e":e,
+	"i":i,
+	"o":o,
+	"u":u,
+	};
+	
+	let cw="";
+	cw=string;
+	for(let i in regex)
+		cw=cw.replace(regex[i],i);
+	return cw;
+}
+
+/*
+return array of fields from/of a obj
+*/
+function getFields(obj)
+{
+	let ar=[];
+	for(let i in obj)
+	{
+		ar.push(i);
+	}
+	return ar;
+}
+
+
+
+/*
+get field of a obj from an index
+*/
 function getFieldByIndex(obj,index)
 {
 	let array=[];
@@ -272,7 +321,9 @@ function getFieldByIndex(obj,index)
 	return array[index];
 }
 
-
+/*
+covert char to Tag
+*/
 function charToTag(char)
 {
 	if(char=="\n")
@@ -286,6 +337,9 @@ else
 
 }
 
+/*
+backward
+*/
 function reverse(whatever,size,opt="")
 {
 
@@ -314,7 +368,9 @@ else
 	return reverse(whatever,v);
 }
 
-
+/*
+for ahead
+*/
 function ahead(whatever,size,opt="")
 {
 
@@ -341,7 +397,9 @@ function ahead(whatever,size,opt="")
 }
 
 
-
+/*
+irof using recursively
+*/
 function recursively(whatever,size,opt="")
 {
 
@@ -368,7 +426,9 @@ if(v==0)
 
 
 
-
+/*
+for ahead using recursivety
+*/
 function recursivelyAHEAD(whatever,size,opt="")
 {
 
@@ -394,6 +454,9 @@ if(size<field.length-1)
 }
 
 
+/*
+format date show up
+*/
 function formatDateToString(date){
    dd = (date.getDate() < 10 ? '0' : '') + date.getDate();
    MM = ((date.getMonth() + 1) < 10 ? '0' : '') + (date.getMonth() + 1);
@@ -402,31 +465,18 @@ function formatDateToString(date){
 }
 
 
+/*
+clean form from id
+*/
 function formClear(id=0){
 document.forms[id].reset();
 }
 
-function formPass(){
-
-	document.getElementById("password").focus();
-}
-
-function ValidatePass()
-{
-       let x=document.getElementById("password").value;
-  let y=document.getElementById("password-repeat").value;
-    if(x!=y){
-alert('Os passwords precisam ser iguais');
-document.getElementById("password").value="";
-document.getElementById("password-repeat").value="";
- formPass();
-
-    }
-
-}
 
 
-
+/*
+create break lines
+*/
 function br(times=1)
 {
 
@@ -435,7 +485,9 @@ function br(times=1)
 }
 
 
-
+/*
+check if param is an obj or array
+*/
 function whatisThat(watisthat)
 {
 
