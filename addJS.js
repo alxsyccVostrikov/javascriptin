@@ -183,22 +183,27 @@ function add(...argument)
 
   let x=typeof(argument);
   let y=Object.keys(argument).length;
-  
   if(y==1)
   {
-    for(let i in argument)
+    let index=0;
+    if(argument[index]=="[object Object]")
     {
-      if(argument[i]=="[object Object]")
+      let nobj=Object.keys(argument[index]);
+      for(let i in nobj)
       {
-        document.write("<script type='text/javascript' src='"+Object.keys(argument[i])+"'><\/script>");
-      }
-      else
-      {
-        document.write("<script type='text/javascript' src='"+argument[i]+"'><\/script>");
+        document.write("<script type='text/javascript' src='"+nobj[i]+"'><\/script>");
       }
     }
-
+    else
+    {
+      let nobj=argument[index];
+      for(let i in nobj)
+      {
+        document.write("<script type='text/javascript' src='"+nobj[i]+"'><\/script>");
+      }
+    }
   }
+  
   else if(y>1)
   {
     for(let i in argument)
