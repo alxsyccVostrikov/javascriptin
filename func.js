@@ -185,8 +185,26 @@ function tab(times=1)
 
 
 /*--------------------------------------------------------------------------------------------
-check if it's or not a Decimal number
+---check if it's or not a Decimal number
+---*/
+
+/*
+Code...
+
+isDecimal("14.6")
+isDecimal(14)
+isDecimal(14.6)
+
 */
+
+/*
+result...
+
+False
+False
+True
+*/
+
 function isDecimal(char)
 {
 	let pattern = /\d\.\d/;
@@ -198,9 +216,26 @@ function isDecimal(char)
 }
 
 
-/*
-check if it's or not a INT
+/*--------------------------------------------------------------------------------------------
+---check if it's or not a INT
+---
 */
+
+/*
+Code...
+isDecimal("14.6")
+isDecimal(14)
+isDecimal(14.6)
+*/
+
+/*
+result...
+
+False
+True
+False
+*/
+
 function isINT(char)
 {
 	let pattern = /[0-9]/;
@@ -216,9 +251,21 @@ function isINT(char)
 }
 
 
-/*
-return if yes or false for a found char
+/*--------------------------------------------------------------------------------------------
+---return if yes or false for a found char
+---
 */
+
+/*
+Code...
+let word="throughout"
+findx(word,'a')
+*/
+/*
+result...
+false
+*/
+
 function findx(variable,char)
 {
 	for(let i in variable)
@@ -233,9 +280,29 @@ function findx(variable,char)
 }
 
 
-/*
-return which one is the type of
+/*--------------------------------------------------------------------------------------------
+---return which one is the type of
+---
 */
+
+/*
+Code....
+
+typeOfVar('x')
+typeOfVar('dog')
+typeOfVar(20)
+typeOfVar(25.5)
+
+
+*/
+/*
+result...
+char
+string
+int
+decimal
+*/
+
 function TypeOfVar(char)
 {
 	if(isDecimal(char) == true )
@@ -250,14 +317,40 @@ function TypeOfVar(char)
 
 
 
-/*
-forEACH backward
+/*--------------------------------------------------------------------------------------------
+---print and return array sorted values ahead,forEACH ,loop ahead,return array
+---
 */
+
+/*
+Code...
+
+array=['1','2','3','4','5'];
+obj={'1':'1','2':'2','3':'3','4':'4','5':'5'}
+fori(array,',')
+fori(obj,'<br>')
+*/
+
+/*
+result...
+1,2,3,4,5
+
+1
+2
+3
+4
+5
+*/
+
 function fori(param,opt="") 
 {
+
+	opt=charToTag(opt);
+
 	if(typeof param == "number")
+	{
 		param=param.toString();
-	//param=param.toString();
+	}
 	let lp=param.length-1 || Object.keys(param).length-1;
 	let count=0;
 	let ar=[];
@@ -265,28 +358,53 @@ function fori(param,opt="")
 	    	if(i==lp || count==lp)
 	        {
 	    			document.write(param[i]);
-	       		ar.push(param[i]);
+	        	ar.push(param[i]);
 	       	}
 	       else
 	       {
-	        	document.write(param[i]+opt);
-	        	ar.push(param[i]);
+	       		document.write(param[i]+opt);
+	        	ar.push(param[i]+opt);
 	        ++count;
 	        }
 	return ar;
 }
 
 /*
-foreach backward 02
+----------------------------------------------------------------------------------------------
+---print and return array sorted values backward,foreach backward,fori backward
+---
 */
+
+/*
+Code...
+
+array=['5','4','3','2','1'];
+obj={'5':'5','4':'4','3':'3','2':'2','1':'1'}
+fori(array,',')
+fori(obj,'<br>')
+*/
+
+/*
+result...
+5,4,3,2,1
+5
+4
+3
+2
+1
+*/
+
 function irof(param,opt="")
 {
+	
+	opt=charToTag(opt);
 	if(typeof param=="number")
-	param=param.toString();
+		param=param.toString();
 	let lp=param.length-1 || Object.keys(param).length-1;
 	let count=lp;
 	let i=0;
 	let ar=[];
+	
 	while(lp>=i)
 	{	
 		if(typeof param=="object")
@@ -322,9 +440,22 @@ function irof(param,opt="")
 	return ar;
 }
 
+/*--------------------------------------------------------------------------------------------
+---remove special chars from a word
+---*/
+
 /*
-remove special chars from a word
+Code...
+let word="alemânténóú";
 */
+
+/*
+result...
+
+alemantenou
+
+*/
+
 function  cleanWord(word){
   return word
   .replace(/á|à|ã|â|ä|Á|À|Ã|Â|Ä/,"a")
@@ -335,9 +466,22 @@ function  cleanWord(word){
   .replace(/ḉ|ç|Ç/,"c");
 }
 
+/*--------------------------------------------------------------------------------------------
+---remove special chars from a word02
+---*/
+
 /*
-remove special chars from a word
+Code...
+let word="alípíóúa";
 */
+
+/*
+result...
+
+alipioua
+
+*/
+
 function cleanWord02(string)
 {
 	let a=/[áÁàÀâÂäÄãÃ]/gi;
@@ -365,10 +509,29 @@ function cleanWord02(string)
 	return cw;
 }
 
-/*
-return array of fields from/of a obj
+/*--------------------------------------------------------------------------------------------
+---return array of fields from/of a obj
+---
 */
-function getFields(obj)
+
+/*
+	let obj={"name":"alex",
+			  "age":"25",
+			  "sex":"male"
+			};
+	let ar=getFields(obj)
+	for(let i in ar)
+	document.write(ar[i]+"<br>");
+	
+*/
+
+/*
+name
+age
+sex
+*/
+
+function getFields(obj,opt)
 {
 	let ar=[];
 	for(let i in obj)
@@ -383,17 +546,54 @@ function getFields(obj)
 /*
 get field of a obj from an index
 */
-function getFieldByIndex(obj,index)
-{
-	let array=[];
-	for(let i in obj)
-	array.push(i);
-	return array[index];
-}
+/*
+Code...
+let obj={"name":"alex",
+			  "age":"25",
+			  "sex":"male"
+			};
+	let field=getFieldByIndex(obj,1)
+	document.write(field+"<br>");
+*/
 
 /*
-covert char to Tag
+result..
+age
 */
+
+function getFieldByIndex(obj,index)
+{
+	
+	let p=0;
+	let field="";
+	for(let i in obj)
+	{
+		if(p==index)
+		{
+			field=i;
+		}
+		++p;
+	}
+	return field;
+}
+
+/*--------------------------------------------------------------------------------------------
+---covert char to Tag
+---
+*/
+
+/*
+Code...
+let opt=charToTag("\n")
+document.write("a"+opt+"b");
+*/
+
+/*
+result...
+a
+b
+*/
+
 function charToTag(char)
 {
 	if(char=="\n")
@@ -407,19 +607,136 @@ else
 
 }
 
-/*
-backward
-*/
-function reverse(whatever,size,opt="")
-{
+/*--------------------------------------------------------------------------------------------
+---print and return value backward without modifyin 1st array,structure legit one
+---*/
 
+/*
+let array=["name","age","sex"];	
+let array02=reverse(array,array.length,",");
+for(let i in array02)
+		document.write(array02[i]+"<br>")
+
+*/
+
+/*
+sex,age,name
+name
+age
+sex
+
+*/
+
+
+function reverse(/*whatever,size,opt=""*/...param)
+{
+let whateverField=[];
+let tp=param.length;
+let whatever=param[tp-tp];
+opt=charToTag(param[tp-1]);
+let i="";
 let index=0;
 let field=[];
+
+for(let i in whatever)
+	{
+		field[index]=i;
+		//whateverField.push(whatever[i])
+		++index;
+	}
+
+if(typeof whatever=="number")
+{
+	i=whatever;
+	while(i>=0)
+	{
+		if(i==0)
+		{
+			document.write(i);			
+		}
+		else
+		{
+			document.write(i+opt);
+		}
+			
+			whateverField.push(i);
+		--i;
+	}
+	return whateverField;
+}
+else if(typeof whatever=="string")
+{
+	i=whatever.length-1;
+	while(i>=0)
+	{
+		if(i==0)
+		{
+			document.write(whatever[i]);			
+		}
+		else
+		{
+			document.write(whatever[i]+opt);
+		}
+			
+			whateverField.push(whatever[i]);
+		--i;
+	}
+	return whateverField;
+}
+
+
+else if(whatever=="[object Object]")
+{
+	let s=Object.keys(whatever).length-1
+	let s1=0;	
+	for(let i=s;i>=0;--i)
+	{
+		if(i==0)
+		{
+			whateverField.push(field[i]);	
+			document.write(field[s1]);
+		}
+		else
+		{
+			whateverField.push(field[i]);
+			document.write(field[s1++]+opt);
+		}
+	}
+		return whateverField;
+
+}
+else
+{
+	for(let i in whatever)
+	{
+
+		if(i==index-1)
+		{
+			whateverField.push(whatever[index-i-1]);
+				document.write(whatever[i])
+			
+		}
+		else
+		{
+			whateverField.push(whatever[index-i-1]);
+			document.write(whatever[i]+opt)
+
+		}
+	}
+	return whateverField;
+}
+}
+
+	/*
+let index=0;
+let field=[];
+let whateverField=[];
 let s=(size==undefined?Object.keys(whatever).length:size);
 opt=charToTag(opt);
 for(let i in whatever)
 {
 field[index]=i;
+whateverField.push(whatever[i])
 ++index;
 }
 
@@ -428,18 +745,82 @@ let v=(s>field.length-1?s-1:s);
 if(v==0)
 {
 	document.write(whatever[field[v]]);
-	return;
+	return whateverField;
 }
 else
 {
 	document.write(whatever[field[v]]+opt);
 	--v;
-}
-	return reverse(whatever,v);
+	return reverse(whatever,v,opt);
 }
 
+
+}
+*/
+
+
+
+
+
+function cleanMatriz(x)
+{
+	for(let i=0;i<x.length;++i)
+	{
+		if(i==x.length-1)
+		{
+			x.pop();
+		}
+		
+		else
+		{
+			x[i]=x[i+1];
+		
+		}
+	
+	}
+		return x;
+}
+
+function shot(x)
+{
+	let ar=[];
+	for(let i=0;i<x.length;++i)
+	{
+		if(i==x.length-1)
+		{
+			x[i]=undefined;
+		}
+		
+		else
+		{
+
+			x[i]=x[i+1];
+			ar.push(x[i]);
+		}
+	
+	}
+		return ar;
+}
+
+
+/*--------------------------------------------------------------------------------------------
+---print and return value ahead without modifyin 1st array,structure legit one
+---*/
+
 /*
-for ahead
+let array=["name","age","sex"];	
+let array02=reverse(array,array.length,",");
+for(let i in array02)
+		document.write(array02[i]+"<br>")
+
+*/
+
+/*
+sex,age,name
+name
+age
+sex
+
 */
 function ahead(whatever,size,opt="")
 {
@@ -527,19 +908,21 @@ if(size<field.length-1)
 /*
 format date show up
 */
-function formatDateToString(date){
-   dd = (date.getDate() < 10 ? '0' : '') + date.getDate();
-   MM = ((date.getMonth() + 1) < 10 ? '0' : '') + (date.getMonth() + 1);
-   yyyy = date.getFullYear();
-   newDate= (MM + "/" + dd + "/"  + yyyy);
+function formatDateToString(){
+	let nd = new Date();
+   dd = (nd.getDate() < 10 ? '0' : '') + nd.getDate();
+   MM = ((nd.getMonth() + 1) < 10 ? '0' : '') + (nd.getMonth() + 1);
+   yyyy = nd.getFullYear();
+   let newDate= (MM + "/" + dd + "/"  + yyyy);
 }
 
 
 /*
 clean form from id
 */
-function formClear(id=0){
-document.forms[id].reset();
+function formClear(id=0)
+{
+	document.forms[id].reset();
 }
 
 
