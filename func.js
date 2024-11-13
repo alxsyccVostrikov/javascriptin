@@ -630,83 +630,141 @@ sex
 
 function reverse(/*whatever,size,opt=""*/...param)
 {
-let whateverField=[];
-let tp=param.length;
-let whatever=param[tp-tp];
-opt=charToTag(param[tp-1]);
-let i="";
-let index=0;
-let field=[];
+	let whateverField=[];
+	let tp=param.length;
+	let whatever=param[tp-tp];
+	opt=charToTag(param[tp-1]);
+	let index=0;
+	let field=[];
 
-for(let i in whatever)
+	for(let i in whatever)
+		{
+			field[index]=i;
+			//whateverField.push(whatever[i])
+			++index;
+		}
+	
+	if(typeof whatever=="number")
 	{
-		field[index]=i;
-		//whateverField.push(whatever[i])
-		++index;
-	}
-
-if(typeof whatever=="number")
-{
-	i=whatever;
-	while(i>=0)
-	{
-		if(i==0)
+		let i=whatever;
+		while(i>=0)
 		{
-			document.write(i);			
+			if(i==0)
+			{
+				document.write(i);			
+			}
+			else
+			{
+				document.write(i+opt);
+			}
+				
+				whateverField.push(i);
+			--i;
 		}
-		else
-		{
-			document.write(i+opt);
-		}
-			
-			whateverField.push(i);
-		--i;
-	}
-	return whateverField;
-}
-else if(typeof whatever=="string")
-{
-	i=whatever.length-1;
-	while(i>=0)
-	{
-		if(i==0)
-		{
-			document.write(whatever[i]);			
-		}
-		else
-		{
-			document.write(whatever[i]+opt);
-		}
-			
-			whateverField.push(whatever[i]);
-		--i;
-	}
-	return whateverField;
-}
-
-
-else if(whatever=="[object Object]")
-{
-	let s=Object.keys(whatever).length-1
-	let s1=0;	
-	for(let i=s;i>=0;--i)
-	{
-		if(i==0)
-		{
-			whateverField.push(field[i]);	
-			document.write(field[s1]);
-		}
-		else
-		{
-			whateverField.push(field[i]);
-			document.write(field[s1++]+opt);
-		}
-	}
 		return whateverField;
+	}
+	else if(typeof whatever=="string")
+	{
+		let i=whatever.length-1;
+		while(i>=0)
+		{
+			if(i==0)
+			{
+				document.write(whatever[i]);			
+			}
+			else
+			{
+				document.write(whatever[i]+opt);
+			}
+				
+				whateverField.push(whatever[i]);
+			--i;
+		}
+		return whateverField;
+	}
+	
+	
+	else if(whatever=="[object Object]")
+	{
+		let s=Object.keys(whatever).length-1
+		let s1=0;	
+		for(let i=s;i>=0;--i)
+		{
+			if(i==0)
+			{
+				whateverField.push(field[i]);	
+				document.write(field[s1]);
+			}
+			else
+			{
+				whateverField.push(field[i]);
+				document.write(field[s1++]+opt);
+			}
+		}
+			return whateverField;
+	
+	}
+	else
+	{
+		let s=whatever.length;
+		let lp=whatever;
+		let v=lp[s-1];
+		let p="";
+		if(typeof v=="number")
+		{
+			p=v;
+			whatever.pop();
+		}
+		else
+			{
+				p=s-1;
+			}
+		
+		if(p==0)
+		{
 
+			document.write(whatever[whatever.length-1]);
+			for(let i=whatever.length-1;i>=0;--i)
+			{
+				whateverField.push(whatever[i]);
+			}
+				return whateverField;
+	
+		}
+		else
+		{
+			p-=2;
+			if(p<0)
+			{
+				document.write(whatever[p*-1]+opt);
+			}
+			else
+			{
+				document.write(whatever[p]+opt);
+			}
+			p+=2;
+			--p;
+			whatever.push(p);
+			return reverse(whatever,opt);	
+		}
+	}
 }
-else
-{
+
+
+/*
+2-2=0
+1-2=-1
+0-2=-2
+*/
+
+
+
+
+
+
+
+	//--------------------------------------------------------------
+	/*
 	for(let i in whatever)
 	{
 
@@ -726,7 +784,8 @@ else
 	return whateverField;
 }
 }
-
+	*/
+	//-----------------------------------------------------------------
 	/*
 let index=0;
 let field=[];
@@ -754,11 +813,29 @@ else
 	return reverse(whatever,v,opt);
 }
 
-
+}
 }
 */
 
 
+function Xelement(array,index)
+{
+	let newArray=[];
+	for(let i=0;i<=index;++i)
+	{
+		if(i==index)
+		{	
+			newArray[i]=index;
+			newArray[i+1]=array[i];
+		}
+		else
+		{
+			newArray[i]=array[i];
+		}
+
+	}
+	return newArray;
+}
 
 
 
