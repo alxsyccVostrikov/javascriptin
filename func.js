@@ -612,19 +612,50 @@ else
 ---*/
 
 /*
-let array=["name","age","sex"];	
-let array02=reverse(array,array.length,",");
-for(let i in array02)
+Code...
+
+let obj={"name":"alex",
+			  "age":"25",
+			  "sex":"male"
+			};
+	let array=["name","age","sex","salary"];
+	let n=5;
+	let string="abcdef";	
+	
+	let array02=reverse(obj,",");
+	for(let i in array02)
 		document.write(array02[i]+"<br>")
+	
 
 */
 
 /*
-sex,age,name
-name
+//obj
+name,age,sexsex
 age
-sex
+name
 
+//array
+name,age,sex,salarysalary
+sex
+age
+name
+
+//n
+5,4,3,2,1,05
+4
+3
+2
+1
+0
+
+//string
+f,e,d,c,b,af
+e
+d
+c
+b
+a
 */
 
 
@@ -720,10 +751,11 @@ function reverse(/*whatever,size,opt=""*/...param)
 				p=s-1;
 			}
 		
+		let wt=whatever.length-1;
 		if(p==0)
 		{
 
-			document.write(whatever[whatever.length-1]);
+			document.write(whatever[wt]);
 			for(let i=whatever.length-1;i>=0;--i)
 			{
 				whateverField.push(whatever[i]);
@@ -733,7 +765,7 @@ function reverse(/*whatever,size,opt=""*/...param)
 		}
 		else
 		{
-			p-=2;
+			p-=wt;
 			if(p<0)
 			{
 				document.write(whatever[p*-1]+opt);
@@ -742,7 +774,7 @@ function reverse(/*whatever,size,opt=""*/...param)
 			{
 				document.write(whatever[p]+opt);
 			}
-			p+=2;
+			p+=wt;
 			--p;
 			whatever.push(p);
 			return reverse(whatever,opt);	
@@ -818,206 +850,152 @@ else
 */
 
 
-function Xelement(array,index)
-{
-	let newArray=[];
-	for(let i=0;i<=index;++i)
-	{
-		if(i==index)
-		{	
-			newArray[i]=index;
-			newArray[i+1]=array[i];
-		}
-		else
-		{
-			newArray[i]=array[i];
-		}
 
-	}
-	return newArray;
-}
+/*----------------------------------------------------------------------------------------------
+*remove elemnt of array from index
+*/
 
+/*
+Code...
+let array=['a','b','c'];
+let array02=shot(array,1)
+*/
 
+/*
+result...
+array=['a',' ','c']
+array02=['a','c']
+*/
 
-function cleanMatriz(x)
-{
-	for(let i=0;i<x.length;++i)
-	{
-		if(i==x.length-1)
-		{
-			x.pop();
-		}
-		
-		else
-		{
-			x[i]=x[i+1];
-		
-		}
-	
-	}
-		return x;
-}
-
-function shot(x)
+function shot(x,index)
 {
 	let ar=[];
+	let count=0
 	for(let i=0;i<x.length;++i)
 	{
-		if(i==x.length-1)
+		if(i==index)
 		{
-			x[i]=undefined;
+			x[i]="";
 		}
-		
-		else
-		{
+	else
+	{
+		ar.push(x[i])
+	}
 
-			x[i]=x[i+1];
-			ar.push(x[i]);
-		}
-	
 	}
 		return ar;
 }
 
 
+
+/*------------------------------------------------------------------------------------------------
+clean input from id
+*/
+
+
+/*
+Code...
+
+ ______________    ______
+|__wat's that__|  |_click|
+*/
+
+
+/*
+result...
+
+_______________    ______
+|______________|  |_click|
+
+*/
+function clearTag(id)
+{
+	document.getElementById(id).value="";
+}
+
+
+
 /*--------------------------------------------------------------------------------------------
----print and return value ahead without modifyin 1st array,structure legit one
----*/
-
-/*
-let array=["name","age","sex"];	
-let array02=reverse(array,array.length,",");
-for(let i in array02)
-		document.write(array02[i]+"<br>")
-
-*/
-
-/*
-sex,age,name
-name
-age
-sex
-
-*/
-function ahead(whatever,size,opt="")
-{
-
-	let index=0;
-	let field=[];
-	opt=charToTag(opt);
-	for(let i in whatever)
-	{
-		field[index]=i;
-		++index;
-	}
-
-	if(size<field.length-1)
-	{
-		document.write(whatever[field[size]]+opt);
-		++size;
-		return ahead(whatever,size);
-	}
-	else
-	{
-		document.write(whatever[field[size]]);
-		return;
-	}
-}
-
-
-/*
-irof using recursively
-*/
-function recursively(whatever,size,opt="")
-{
-
-let index=0;
-let field=[];
-let s=(size==undefined?Object.keys(whatever).length:size);
-opt=charToTag(opt);
-for(let i in whatever)
-{
-field[index]=i;
-++index;
-}
-
-//let v=(s<=field.length-1?s:s-1);
-let v=(s>field.length-1?s-1:s);
-if(v==0)
-{
-	keyzin.push(whatever[field[v]]);
-	return;
-}
-	keyzin.push(whatever[field[v--]]);
-	return recursively(whatever,v);
-}
-
-
-
-/*
-for ahead using recursivety
-*/
-function recursivelyAHEAD(whatever,size,opt="")
-{
-
-let index=0;
-let field=[];
-
-opt=charToTag(opt);
-for(let i in whatever)
-{
-field[index]=i;
-++index;
-}
-
-
-if(size<field.length-1)
-{
-	keyzin.push(whatever[field[size]]);
-	++size;
-	return recursivelyAHEAD(whatever,size);
-}
-	keyzin.push(whatever[field[size]]);
-	return;
-}
-
-
-/*
-format date show up
-*/
-function formatDateToString(){
-	let nd = new Date();
-   dd = (nd.getDate() < 10 ? '0' : '') + nd.getDate();
-   MM = ((nd.getMonth() + 1) < 10 ? '0' : '') + (nd.getMonth() + 1);
-   yyyy = nd.getFullYear();
-   let newDate= (MM + "/" + dd + "/"  + yyyy);
-}
-
-
-/*
-clean form from id
-*/
-function formClear(id=0)
-{
-	document.forms[id].reset();
-}
-
-
-
-/*
 create break lines
 */
-function br(times=1)
-{
 
-	for(let i=1;i<=times;++i)
-		document.write("<br>");	
-}
+/*
+Code...
+document.write("this is a text");
+	brakLine(8);
+	document.write("js library");
+*/
 
 
 /*
+result...
+
+this is a test
+
+
+
+
+
+
+
+js library
+*/
+
+function brakLine(times=1)
+{
+	for(let i=1;i<=times;++i)
+	{
+			document.write("<br>");	
+	}
+}
+
+
+/*--------------------------------------------------------------------------------------------
+*break line inside word[document.write]
+*/
+
+/*
+Code...
+
+	document.write("this is a "+brline()+"test");
+
+*/
+
+/*
+result...
+this is a
+
+test
+*/
+
+function brline(times=1)
+{
+	let string="";
+	for(let i=1;i<=times;++i)
+	{
+		string+="<br>";
+	}
+	return string;	
+}
+
+/*-------------------------------------------------------------------------------------------0
 check if param is an obj or array
 */
+
+/*
+Code...
+let x=["name","age","sex","salary"];
+let y={"name":"alex","age":25}
+document.write(whatisThat(x))
+document.write(whatisThat(y))
+*/
+
+/*
+result...
+array
+object
+*/
+
 function whatisThat(watisthat)
 {
 
