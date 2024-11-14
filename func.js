@@ -947,16 +947,7 @@ function ahead(whatever,opt="")
 
 
 
-
-
-
-
-
-
-
-
-
-		/*
+		//---------------------------------------------------
 		case "array":
 			lp=whatever.length-1;
 			p=0;
@@ -990,37 +981,23 @@ function ahead(whatever,opt="")
 			}
 		return whateverField;
 		break;
-		/*
-		case "object":
-			for(let i in whatever)
-			{
-				if(index==Object.keys(whatever).length-1)
-				{
-					document.write(i)
-				}
-				else
-				{
-					document.write(i+opt)
-				}
-				whateverField.push(i)
-				++index;
+		
 
-			}
+		//-----------------------------------------------------
+		
+		case "object":
+		for(let i=0;i<Object.keys(whatever).length;++i)
+		{
+			document.write(whatever["name"])
+		}
 		break;
-		*/
+	
+		}
 	}
 
-	//-----------------------------------------------------------------------------
-	function isadigit(char)
-	{
-		let pattern=/[a-z]/g;
-		if(char.match(pattern))
-			return false;
-		else
-			return true;
-}
 
-	//-----------------------------------------------------------------------------
+		//-----------------------------------------------------------------------------
+//ahead....another one
 	/*
 	let index=0;
 	let field=[];
@@ -1062,8 +1039,45 @@ function ahead(whatever,opt="")
 		break;
 	}
 	return whateverField;
-	*/
 }
+	*/
+
+
+
+
+
+
+
+	/*-----------------------------------------------------------------------------
+	---check if it's a digit or not....even if number is in parenthese ...
+	--*
+
+	/*
+	Code...
+	reverse logic
+	isadigit("5s5")
+	isadigit("55s")
+	isadigit("s55")
+	isadigit("55")
+	
+	*/
+
+	/*
+		false
+		false
+		false
+		true
+	*/
+	function isadigit(char)
+	{
+		let pattern=/[a-z]/g;
+		if(char.match(pattern))
+			return false;
+		else
+			return true;
+}
+
+
 
 /*----------------------------------------------------------------------------------------------
 *remove elemnt of array from index
