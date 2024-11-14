@@ -986,10 +986,43 @@ function ahead(whatever,opt="")
 		//-----------------------------------------------------
 		
 		case "object":
-		for(let i=0;i<Object.keys(whatever).length;++i)
+
+		let index=0;
+		let field=[];
+		let whateverField=[];
+		let obs=Object.keys(whatever).length-1;
+		let pos=0;
+
+		
+		for(let i in whatever)
 		{
-			document.write(whatever["name"])
+			field.push(i);
+			++index;
 		}
+
+
+		let lobj=field[obs];
+		
+
+		if(pos==obs)
+		{
+			for(let i=0;i<obs;++i)
+			{
+				whateverField.push(whatever[i])
+			}
+			document.write(whatever[pos])
+		}
+
+		else
+		{
+			document.write(whatever[field[pos]]+opt);
+			++pos
+			whatever[pos]=pos;
+			
+			//ahead(whatever,opt)
+		}
+		
+		return whateverField;
 		break;
 	
 		}
@@ -1077,6 +1110,35 @@ function ahead(whatever,opt="")
 			return true;
 }
 
+
+/*-----------------------------------------------------------------------------
+	---check if it's not a digit or not....even if number is in parenthese ...
+	--*
+
+	/*
+	Code...
+	reverse logic
+	isadigit("5s5")
+	isadigit("55s")
+	isadigit("s55")
+	isadigit("55")
+	
+	*/
+
+	/*
+		false
+		false
+		false
+		true
+	*/
+	function isnotadigit(char)
+	{
+		let pattern=/[a-z]/g;
+		if(char.match(pattern))
+			return true;
+		else
+			return false;
+  }
 
 
 /*----------------------------------------------------------------------------------------------
