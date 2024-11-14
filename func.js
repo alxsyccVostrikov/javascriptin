@@ -205,9 +205,13 @@ False
 True
 */
 
+/*
+check typeOfChar()
+*/
+
 function isDecimal(char)
 {
-	let pattern = /\d\.\d/;
+
 	
 	if(pattern.test(char)==true)
 	{
@@ -234,6 +238,10 @@ result...
 False
 True
 False
+*/
+
+/*
+check typeOfChar()
 */
 
 function isINT(char)
@@ -305,14 +313,29 @@ decimal
 
 function TypeOfVar(char)
 {
-	if(isDecimal(char) == true )
+	let dec = /\d\.\d/;
+	let int = /[0-9]/;
+	let c=	/[a-zA-z]/
+	let string = /[a-zA-z]/;
+
+	if(dec.test(char) == true && typeof char != "string"  )
 		return "decimal";
-	else if(isINT(char) == true)
+	else if(int.test(char) == true && typeof char != "string")
 		return "int";
+	else if(c.test(char) == true && char.length == 1)
+		return "char";
+	else if(string.test(char) == true && char.length>1)
+		return "string";
+	else if(int.test(char) == true && typeof char == "string")
+		return "string";
+	else if(dec.test(char) == true && typeof char == "string")
+		return "int";
+	/*
 	else if(typeof char == "string" && char.length == 1 )
 		return "char";
 	else if(typeof char == "string")
 		return "string";
+	*/
 }
 
 
@@ -851,6 +874,197 @@ else
 
 
 
+
+
+
+
+
+
+
+
+
+/*--------------------------------------------------------------------------------------------
+---print and return value ahead without modifyin 1st array,structure legit one
+---*/
+
+/*
+let array=["name","age","sex"];	
+let array02=reverse(array,array.length,",");
+for(let i in array02)
+		document.write(array02[i]+"<br>")
+
+*/
+
+/*
+sex,age,name
+name
+age
+sex
+
+*/
+function ahead(whatever,opt="")
+{
+	let whateverField=[];
+	let lp=""
+	switch(whatisThat(whatever))
+	{
+		case "string":
+			lp=whatever[whatever.length-1];
+			let p=0
+			let s=whatever.length-1;
+			
+			if(isadigit(lp)==true)
+			{
+				p=Number.parseInt(lp);
+				whatever=whatever.slice(0,whatever.length-1);
+				s=whatever.length-1;
+			}
+			else
+			{
+				p=p;
+			}
+			
+			
+			if(p==s)
+			{
+				for(let i=0;i<=s;++i)
+				{
+					whateverField.push(whatever[i]);
+				}
+				document.write(whatever[p]);
+			}
+			
+			else
+			{
+				
+				document.write(whatever[p]+opt);
+				++p;
+				whatever+=p;
+				return ahead(whatever,opt);
+			}
+		return whateverField;
+		break;
+
+
+
+
+
+
+
+
+
+
+
+
+		/*
+		case "array":
+			lp=whatever.length-1;
+			p=0;
+			if(TypeOfVar(whatever[lp])=="int")
+			{
+				p=whatever[lp];
+				whatever.pop();
+				lp=whatever.length-1;
+			}
+			else
+			{
+				p=p;
+			}
+			
+			if(p==lp)
+			{
+				for(let i=0;i<=lp;++i)
+				{
+					whateverField.push(whatever[i]);
+				}
+				document.write(whatever[p]);
+			}
+			
+			else
+			{
+				
+				document.write(whatever[p]+opt);
+				++p;
+				whatever.push(p);
+				return ahead(whatever,opt);
+			}
+		return whateverField;
+		break;
+		/*
+		case "object":
+			for(let i in whatever)
+			{
+				if(index==Object.keys(whatever).length-1)
+				{
+					document.write(i)
+				}
+				else
+				{
+					document.write(i+opt)
+				}
+				whateverField.push(i)
+				++index;
+
+			}
+		break;
+		*/
+	}
+
+	//-----------------------------------------------------------------------------
+	function isadigit(char)
+	{
+		let pattern=/[a-z]/g;
+		if(char.match(pattern))
+			return false;
+		else
+			return true;
+}
+
+	//-----------------------------------------------------------------------------
+	/*
+	let index=0;
+	let field=[];
+	opt=charToTag(opt);
+	let whateverField=[];
+	
+	switch(whatisThat(whatever))
+	{
+		case "array":
+		case "string":
+			for(let i in whatever)
+			{
+				if(i==whatever.length-1)
+				{
+					document.write(whatever[i]);
+				}
+				else
+				{
+					document.write(whatever[i]+opt);
+				}
+				whateverField.push(whatever[i])
+			}
+		break;
+		case "object":
+			for(let i in whatever)
+			{
+				if(index==Object.keys(whatever).length-1)
+				{
+					document.write(i)
+				}
+				else
+				{
+					document.write(i+opt)
+				}
+				whateverField.push(i)
+				++index;
+
+			}
+		break;
+	}
+	return whateverField;
+	*/
+}
+
 /*----------------------------------------------------------------------------------------------
 *remove elemnt of array from index
 */
@@ -1003,8 +1217,12 @@ function whatisThat(watisthat)
 	{
 		return "object";
 	}
-	else
+	else if(watisthat[0].length>1)
 	{
 		return "array";
+	}
+	else
+	{
+		return "string";
 	}
 }
