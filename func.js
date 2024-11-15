@@ -997,6 +997,8 @@ function ahead(whatever,opt=",")
 			field.push(i);
 		}
 
+		
+		
 		if(isadigit(lastPositionOPT)==true)
 			{
 				position=Number.parseInt(lastPositionOPT);
@@ -1012,20 +1014,26 @@ function ahead(whatever,opt=",")
 		
 		if(position==objSize)
 		{
+			
 			for(let i=0;i<=objSize;++i)
 			{
 				whateverField.push(whatever[field[i]]);
 			}
-			document.write(whatever[field[position]]);
+				document.write(whatever[field[position]]);
 		}
 
 		else
 		{
+			for(let i=0;i<objSize;++i)
+			{
+				whateverField.push(whatever[field[i]]);
+			}
 			document.write(whatever[field[position]]+opt);
 			++position
 			opt+=position;
 			ahead(whatever,opt)
 		}
+			
 		return whateverField;
 		break;
 
