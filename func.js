@@ -902,30 +902,36 @@ age
 sex
 
 */
-function ahead(whatever,opt="")
+function ahead(whatever,opt=",")
 {
 
 	let whateverField=[];
-	let lastPosition=whatever[whatever.length-1];
+	let objSize=whatever.length || Object.keys(whatever).length;
+	let lastPosition=whatever[objSize-1];
 	let position=0
-	let objSize=whatever.length-1 || Object.keys(whatever).length-1;
+	let field=[];
 			
+	//hack...
+	let optSize=opt.length;
+	let lastPositionOPT=opt[optSize-1];
+
 	switch(whatisThat(whatever))
 	{
 		case "string":
 			
-			if(isadigit(lastPosition)==true)
+			if(isadigit(lastPositionOPT)==true)
 			{
-				position=Number.parseInt(lastPosition);
-				whatever=whatever.slice(0,whatever.length-1);
+				position=Number.parseInt(lastPositionOPT);
+				//whatever=whatever.slice(0,objSize-1);
+				opt=opt.slice(0,optSize-1);
 				objSize=whatever.length-1;
+				//lastPositionOPT=opt[optSize-1]
 			}
 			else
 			{
 				position=position;
 			}
-			
-			
+
 			if(position==objSize)
 			{
 				for(let i=0;i<=objSize;++i)
@@ -934,13 +940,14 @@ function ahead(whatever,opt="")
 				}
 				document.write(whatever[position]);
 			}
+
 			
 			else
 			{
 				
 				document.write(whatever[position]+opt);
 				++position;
-				whatever+=position;
+				opt+=position;
 				return ahead(whatever,opt);
 			}
 		return whateverField;
@@ -986,43 +993,55 @@ function ahead(whatever,opt="")
 		//-----------------------------------------------------
 	
 		case "object":
-	document.write("obj:"+objSize)
-
 		let index=0;
-		let field=[];
 
-			/*
 
-		
+
+		position=2
+		whatever[position]=position;
 		for(let i in whatever)
 		{
 			field.push(i);
 			++index;
 		}
-
-
-		let lobj=field[obs];
+		
 		
 
-		if(pos==obs)
+
+		document.write("lastPosition:"+whatever[field[0]]+"<br>")
+		document.write("objSize:"+objSize+"<br>"+
+									  "index:"+index+"<br>"+
+									  "lastPosition:"+lastPosition+"<br>");
+
+
+		if(TypeOfVar(lastPosition)=="int")
 		{
-			for(let i=0;i<obs;++i)
+			position=whatever[field[0]];
+		}
+		else
+		{}
+
+
+		
+
+		if(position==objSize)
+		{
+			for(let i=0;i<objSize;++i)
 			{
 				whateverField.push(whatever[i])
 			}
-			document.write(whatever[pos])
+			document.write(whatever[position]);
 		}
 
 		else
 		{
-			document.write(whatever[field[pos]]+opt);
-			++pos
-			whatever[pos]=pos;
+			document.write(whatever[field[position]]+opt);
+			++position
+			whatever[position]=position;
 			
 			//ahead(whatever,opt)
 		}
 		
-		*/
 		return whateverField;
 		break;
 
@@ -1081,7 +1100,37 @@ function ahead(whatever,opt="")
 
 
 
+/***-----------------------------------------------------------------------------
+ * Print object
+ * /
+ 
+/**/
 
+/**/
+
+
+function printWhatever(whatever,opt="<br>")
+{
+	let index=0;
+	let objSize=Object.keys(whatever).length;
+	switch(whatisThat(obj))
+	{
+		case "object":
+			for(let i in whatever)
+			{
+				//if(index==objSize)
+				//{
+				//	document.write(whatever[i]);
+				//}
+				//else
+				//{
+					document.write(i+opt);
+				//}
+				++index;
+			}
+		break;
+	}
+}
 
 	/*-----------------------------------------------------------------------------
 	---check if it's a digit or not....even if number is in parenthese ...
@@ -1105,7 +1154,7 @@ function ahead(whatever,opt="")
 	*/
 	function isadigit(char)
 	{
-		let pattern=/[a-z]/g;
+		let pattern=/[a-z\,]/g;
 		if(char.match(pattern))
 			return false;
 		else
