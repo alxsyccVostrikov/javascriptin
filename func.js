@@ -554,7 +554,7 @@ age
 sex
 */
 
-function getFields(obj,opt)
+function getFields(obj)
 {
 	let ar=[];
 	for(let i in obj)
