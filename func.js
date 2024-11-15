@@ -919,10 +919,8 @@ function ahead(whatever,opt=",")
 			if(isadigit(lastPositionOPT)==true)
 			{
 				position=Number.parseInt(lastPositionOPT);
-				//whatever=whatever.slice(0,objSize-1);
 				opt=opt.slice(0,optSize-1);
 				objSize=whatever.length-1;
-				//lastPositionOPT=opt[optSize-1]
 			}
 			else
 			{
@@ -954,12 +952,9 @@ function ahead(whatever,opt=",")
 
 		//---------------------------------------------------
 		case "array":
-		let optSize=opt.length;
-		let lastPositionOPT=opt[optSize-1];
 		if(isadigit(lastPositionOPT)==true)
 			{
 				position=Number.parseInt(lastPositionOPT);
-				//whatever.pop();
 				opt=opt.slice(0,optSize-1);
 				objSize=whatever.length-1;
 			}
@@ -983,7 +978,6 @@ function ahead(whatever,opt=",")
 				document.write(whatever[position]+opt);
 				++position;
 				opt+=position;
-				//whatever.push(position);
 				return ahead(whatever,opt);
 			}
 		
@@ -994,57 +988,42 @@ function ahead(whatever,opt=",")
 		//-----------------------------------------------------
 	
 		case "object":
-		let index=0;
 		let field=[];
-	
 
-
-
-		position=2
-		whatever[position]=position;
 		for(let i in whatever)
 		{
 			field.push(i);
-			++index;
 		}
+
+		if(isadigit(lastPositionOPT)==true)
+			{
+				position=Number.parseInt(lastPositionOPT);
+				opt=opt.slice(0,optSize-1);
+				objSize=objSize=whatever.length-1 || Object.keys(whatever).length-1;
+
+			}
+			else
+			{
+				position=position;
+
+			}
 		
-		
-
-
-		document.write("lastPosition:"+whatever[field[0]]+"<br>")
-		document.write("objSize:"+objSize+"<br>"+
-									  "index:"+index+"<br>"+
-									  "lastPosition:"+lastPosition+"<br>");
-
-
-		if(TypeOfVar(lastPosition)=="int")
-		{
-			position=whatever[field[0]];
-		}
-		else
-		{}
-
-
-		
-
 		if(position==objSize)
 		{
-			for(let i=0;i<objSize;++i)
+			for(let i=0;i<=objSize;++i)
 			{
-				whateverField.push(whatever[i])
+				whateverField.push(whatever[field[i]]);
 			}
-			document.write(whatever[position]);
+			document.write(whatever[field[position]]);
 		}
 
 		else
 		{
 			document.write(whatever[field[position]]+opt);
 			++position
-			whatever[position]=position;
-			
-			//ahead(whatever,opt)
+			opt+=position;
+			ahead(whatever,opt)
 		}
-		
 		return whateverField;
 		break;
 
