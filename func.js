@@ -1093,25 +1093,40 @@ function ahead(whatever,opt=",")
 /**/
 
 
-function printWhatever(whatever,opt="<br>")
+function printWhatever(whatever,opt="")
 {
 	let index=0;
-	let objSize=Object.keys(whatever).length;
-	switch(whatisThat(obj))
+	let objSize=whatever.length || Object.keys(whatever).length;
+	switch(whatisThat(whatever))
 	{
-		case "object":
+		case "array":
+		case "string":
 			for(let i in whatever)
 			{
-				//if(index==objSize)
-				//{
-				//	document.write(whatever[i]);
-				//}
-				//else
-				//{
-					document.write(i+opt);
-				//}
+				if(index==objSize-1)
+				{
+					document.write(whatever[i])
+				}
+				else
+				{
+					document.write(whatever[i]+opt)
+				}
 				++index;
 			}
+			break;
+			case "object":
+				for(let i in whatever)
+				{
+					if(index==objSize-1)
+					{
+						document.write(i+":"+whatever[i]);
+					}
+					else
+					{
+						document.write(i+":"+whatever[i]+opt);
+					}
+					++index;
+				}
 		break;
 	}
 }
