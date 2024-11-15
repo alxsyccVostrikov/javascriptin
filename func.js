@@ -909,9 +909,6 @@ function ahead(whatever,opt=",")
 	let objSize=whatever.length || Object.keys(whatever).length;
 	let lastPosition=whatever[objSize-1];
 	let position=0
-	let field=[];
-			
-	//hack...
 	let optSize=opt.length;
 	let lastPositionOPT=opt[optSize-1];
 
@@ -957,10 +954,13 @@ function ahead(whatever,opt=",")
 
 		//---------------------------------------------------
 		case "array":
-		if(TypeOfVar(lastPosition)=="int")
+		let optSize=opt.length;
+		let lastPositionOPT=opt[optSize-1];
+		if(isadigit(lastPositionOPT)==true)
 			{
-				position=lastPosition;
-				whatever.pop();
+				position=Number.parseInt(lastPositionOPT);
+				//whatever.pop();
+				opt=opt.slice(0,optSize-1);
 				objSize=whatever.length-1;
 			}
 			else
@@ -982,7 +982,8 @@ function ahead(whatever,opt=",")
 				
 				document.write(whatever[position]+opt);
 				++position;
-				whatever.push(position);
+				opt+=position;
+				//whatever.push(position);
 				return ahead(whatever,opt);
 			}
 		
@@ -994,6 +995,8 @@ function ahead(whatever,opt=",")
 	
 		case "object":
 		let index=0;
+		let field=[];
+	
 
 
 
