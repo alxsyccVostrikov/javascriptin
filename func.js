@@ -1093,12 +1093,24 @@ function ahead(whatever,opt=",")
 
 
 /***-----------------------------------------------------------------------------
- * Print object
+ * Print whatever
  * /
  
-/**/
+/*
+Code...
+let obj={"name":"alex","sex":"male"}
+let array=["a","m","5"];
+let string="ax";
+printwhatever(obj,',');
+printwhatever(array,',');
+printwhatever(string,',');
+*/
 
-/**/
+/*
+name:alex,sex:male
+a,m,5
+a,x
+*/
 
 
 function printWhatever(whatever,opt="")
