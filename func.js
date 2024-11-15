@@ -904,42 +904,43 @@ sex
 */
 function ahead(whatever,opt="")
 {
+
 	let whateverField=[];
-	let lp=""
+	let lastPosition=whatever[whatever.length-1];
+	let position=0
+	let objSize=whatever.length-1 || Object.keys(whatever).length-1;
+			
 	switch(whatisThat(whatever))
 	{
 		case "string":
-			lp=whatever[whatever.length-1];
-			let p=0
-			let s=whatever.length-1;
 			
-			if(isadigit(lp)==true)
+			if(isadigit(lastPosition)==true)
 			{
-				p=Number.parseInt(lp);
+				position=Number.parseInt(lastPosition);
 				whatever=whatever.slice(0,whatever.length-1);
-				s=whatever.length-1;
+				objSize=whatever.length-1;
 			}
 			else
 			{
-				p=p;
+				position=position;
 			}
 			
 			
-			if(p==s)
+			if(position==objSize)
 			{
-				for(let i=0;i<=s;++i)
+				for(let i=0;i<=objSize;++i)
 				{
 					whateverField.push(whatever[i]);
 				}
-				document.write(whatever[p]);
+				document.write(whatever[position]);
 			}
 			
 			else
 			{
 				
-				document.write(whatever[p]+opt);
-				++p;
-				whatever+=p;
+				document.write(whatever[position]+opt);
+				++position;
+				whatever+=position;
 				return ahead(whatever,opt);
 			}
 		return whateverField;
@@ -949,49 +950,48 @@ function ahead(whatever,opt="")
 
 		//---------------------------------------------------
 		case "array":
-			lp=whatever.length-1;
-			p=0;
-			if(TypeOfVar(whatever[lp])=="int")
+		if(TypeOfVar(lastPosition)=="int")
 			{
-				p=whatever[lp];
+				position=lastPosition;
 				whatever.pop();
-				lp=whatever.length-1;
+				objSize=whatever.length-1;
 			}
 			else
 			{
-				p=p;
+				position=position;
 			}
 			
-			if(p==lp)
+			if(position==objSize)
 			{
-				for(let i=0;i<=lp;++i)
+				for(let i=0;i<=objSize;++i)
 				{
 					whateverField.push(whatever[i]);
 				}
-				document.write(whatever[p]);
+				document.write(whatever[position]);
 			}
 			
 			else
 			{
 				
-				document.write(whatever[p]+opt);
-				++p;
-				whatever.push(p);
+				document.write(whatever[position]+opt);
+				++position;
+				whatever.push(position);
 				return ahead(whatever,opt);
 			}
+		
 		return whateverField;
 		break;
 		
 
 		//-----------------------------------------------------
-		
+	
 		case "object":
+	document.write("obj:"+objSize)
 
 		let index=0;
 		let field=[];
-		let whateverField=[];
-		let obs=Object.keys(whatever).length-1;
-		let pos=0;
+
+			/*
 
 		
 		for(let i in whatever)
@@ -1022,8 +1022,10 @@ function ahead(whatever,opt="")
 			//ahead(whatever,opt)
 		}
 		
+		*/
 		return whateverField;
 		break;
+
 	
 		}
 	}
