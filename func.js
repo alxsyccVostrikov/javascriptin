@@ -929,10 +929,12 @@ function ahead(whatever,opt=",")
 
 			if(position==objSize)
 			{
+
 				for(let i=0;i<=objSize;++i)
 				{
 					whateverField.push(whatever[i]);
 				}
+
 				document.write(whatever[position]);
 			}
 
@@ -1335,3 +1337,6 @@ function whatisThat(watisthat)
 		return "string";
 	}
 }
+
+
+
