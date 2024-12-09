@@ -1358,15 +1358,19 @@ object
 
 function whatisThat(watisthat)
 {
+	if(typeof watisthat=="object")
+	{
+		if(watisthat[0]==undefined)
+		{
+			return "object";
+		}
+		else
+		{
+			return "array";
+		}	
+	}
 
-	if(watisthat[0]==undefined)
-	{
-		return "object";
-	}
-	else if(watisthat[0].length>1)
-	{
-		return "array";
-	}
+	
 	else
 	{
 		return "string";
@@ -1375,3 +1379,400 @@ function whatisThat(watisthat)
 
 
 
+/*-------------------------------------------------------------------------------------------0
+check if param is an obj or array
+*/
+
+
+
+function selectionSort(arr) {
+    let n = arr.length;
+
+    for (let i = 0; i < n - 1; i++) {
+        // Assume the first unsorted element is the smallest
+        let minIndex = i;
+
+        // Check the rest of the array for a smaller element
+        for (let j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+
+        // Swap the found minimum element with the first unsorted element
+        if (minIndex !== i) {
+            [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+        }
+    }
+
+    return arr;
+}
+
+
+
+/*-------------------------------------------------------------------------------------------0
+check if param is an obj or array
+*/
+
+
+
+function quickSort(arr) 
+{
+	if (arr.length <= 1)
+	{
+ 		return arr;
+  }
+  const pivot = arr[arr.length - 1];
+  const left = []; // Elements less than the pivot
+  const right = []; // Elements greater than the pivot
+
+  for (let i = 0; i < arr.length - 1; i++)
+  {
+  	if (arr[i] < pivot)
+  	{
+			left.push(arr[i]);
+    } 
+    else
+    {
+    	right.push(arr[i]);
+    }
+  }
+  return [...quickSort(left), pivot, ...quickSort(right)];
+} 
+
+
+
+/*-------------------------------------------------------------------------------------------0
+check if param is an obj or array
+*/
+
+function quickSort(arr) 
+{
+    if (arr.length <= 1) return arr;
+    const pivot = arr[arr.length - 1];
+    const left = arr.filter(el => el < pivot);
+    const right = arr.filter(el => el >= pivot && el !== pivot);
+    return [...quickSort(left), pivot, ...quickSort(right)];
+}
+
+
+
+/*-------------------------------------------------------------------------------------------0
+check if param is an obj or array
+*/
+
+function signupForm(PHPpage)
+{
+	document.write(
+		"<form action='"+PHPpage+"'>"+
+ 			"<fieldset>"+
+  		"<legend>Usuário:</legend>"+
+  		"<label for='fname'>Nome:</label>"+
+  		"<input type='text' id='fname' name='fname'><br><br>"+
+  		"<label for='lname'>Sobrenome:</label>"+
+  		"<input type='text' id='lname' name='lname'><br><br>"+
+  		"<label for='email'>Email:</label>"+
+  		"<input type='email' id='email' name='email'><br><br>"+
+  		"<label for='birthday'>Birthday:</label>"+
+  		"<input type='date' id='birthday' name='birthday'><br><br>"+
+  		"<input type='submit' value='Cadastrar'>"+
+ 			"</fieldset>");
+ }
+
+
+
+/*-------------------------------------------------------------------------------------------0
+check if param is an obj or array
+*/
+
+
+function textArea(c,l,PHPpage)
+{
+	document.write(
+	"<form action='"+PHPpage+"'>"+
+  "<p><label for='areaReview'>Review da mensagem:</label></p>"+
+  "<textarea id='areaReview' name='areaReview' rows="+l+" cols="+c+" placeholder='olá,eu gostaria de fazer parte do seu circulo de amizade aqui no adventNET.'></textarea>"+
+  "<br>"+
+  "<input type='submit' value='Submit'>"+
+	"</form>");
+
+}
+
+
+function table(whatever,domain="")
+{
+	let whoami=whatisThat(whatever);
+	let s="=";
+	let e=",";
+	let x=0,y=5;
+	let field="user";
+	
+
+	document.write("<style>table,td {border:1px solid black;}</style>");
+	document.write("<table style='width:50'>");
+	document.write("<tr>banco de dados!");
+	if(whoami=="object")
+	{
+		let size=Object.keys(whatever[field]).length;
+		for(let i=0;i<size;++i)
+		{
+			document.write("<tr>");
+  		document.write("<td>"+sha256(whatever[field][i])+"</td>");
+			document.write("</tr>");
+  }
+	}
+	else if(whoami=="array")
+	{
+
+		for(let i=0;i<whatever.length;++i)
+ 		{
+			document.write("<tr>");
+  		document.write("<td>"+sha256(whatever[i])+"</td>");
+  		document.write("</tr>");
+  	}
+
+   }
+
+
+  document.write("</table>");
+   
+}
+
+
+
+//-------------------------------------------------------------------
+
+
+function validatePasswords(password, confirmPassword) {
+    const passwordValidation = {
+        isValid: true,
+        errors: []
+    };
+
+    // Validation rules for the password
+    if (password.length < 8) {
+        passwordValidation.isValid = false;
+        passwordValidation.errors.push("Password must be at least 8 characters long.");
+    }
+
+    if (!/[A-Z]/.test(password)) {
+        passwordValidation.isValid = false;
+        passwordValidation.errors.push("Password must contain at least one uppercase letter.");
+    }
+
+    if (!/[a-z]/.test(password)) {
+        passwordValidation.isValid = false;
+        passwordValidation.errors.push("Password must contain at least one lowercase letter.");
+    }
+
+    if (!/[0-9]/.test(password)) {
+        passwordValidation.isValid = false;
+        passwordValidation.errors.push("Password must contain at least one number.");
+    }
+
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+        passwordValidation.isValid = false;
+        passwordValidation.errors.push("Password must contain at least one special character.");
+    }
+
+    // Check if passwords match
+    if (password !== confirmPassword) {
+        passwordValidation.isValid = false;
+        passwordValidation.errors.push("Passwords do not match.");
+    }
+
+    return passwordValidation;
+}
+
+
+//------------------------------------------------------------
+
+
+function validatePasswords02(password, confirmPassword) {
+
+const passwordValidation = {
+        isValid: true,
+        errors: []
+    };
+
+    // Validation rules for the password
+    if (password.length < 8) {
+        passwordValidation.isValid = false;
+        passwordValidation.errors.push("Password must be at least 8 characters long.");
+    }
+
+    if (!/[A-Z]/.test(password)) {
+        passwordValidation.isValid = false;
+        passwordValidation.errors.push("Password must contain at least one uppercase letter.");
+    }
+
+    if (!/[a-z]/.test(password)) {
+        passwordValidation.isValid = false;
+        passwordValidation.errors.push("Password must contain at least one lowercase letter.");
+    }
+
+    if (!/[0-9]/.test(password)) {
+        passwordValidation.isValid = false;
+        passwordValidation.errors.push("Password must contain at least one number.");
+    }
+
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+        passwordValidation.isValid = false;
+        passwordValidation.errors.push("Password must contain at least one special character.");
+    }
+
+    // Check if passwords match
+    if (password !== confirmPassword) {
+        passwordValidation.isValid = false;
+        passwordValidation.errors.push("Passwords do not match.");
+    }
+    
+    
+    if (passwordValidation.isValid)
+    {
+    	alert("Password is valid and matches the confirmation field.");
+	} 
+	else
+    {
+    	alert("Validation errors:", passwordValidation.errors);
+	}
+
+}
+
+
+//--------------------------------------------------------------------
+
+
+function generateAsciiTable(){
+    let table = "ASCII Table:\n";
+    table += "Char | Decimal\n";
+    table += "-----+--------\n";
+
+    for (let i = 32; i <= 126; i++) {
+        const char = String.fromCharCode(i);
+        const decimal = i;
+  
+        table += `${char.padEnd(4)} | ${decimal.toString().padEnd(7)}\n`;
+    }
+
+    document.write(table);
+}
+
+
+generateAsciiTable()
+
+
+
+//------------------------------------------------------------------
+
+function autoCapitalizeInput(...inputElement) {
+for(let i in inputElement)
+{
+    inputElement[i].addEventListener('input', function () {
+        const cursorPosition = inputElement[i].selectionStart;
+        inputElement[i].value = inputElement[i].value.charAt(0).toUpperCase() + inputElement[i].value.slice(1);
+        inputElement[i].setSelectionRange(cursorPosition, cursorPosition);
+    });
+}
+}
+
+
+//--------------------------------------------------------------------------
+
+function addinputFields(...inputFields)
+{
+for(let i in inputFields)
+{
+	document.body.appendChild(inputFields[i]);
+
+}
+}
+
+
+
+//--------------------------------------------------------------------
+
+
+function capitalizeFirstLetter(word) {
+    if (typeof word !== 'string' || word.length === 0) {
+        return word;
+    }
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+}
+
+
+//--------------------------------------------------------------------
+
+
+function handleTabPress(inputElement) {
+    inputElement.addEventListener('keydown', function (event) {
+        if (event.key === 'Tab') {
+            event.preventDefault(); // Prevent default tab behavior
+            //validatePasswords02(password,confirmPassword )
+       
+        }
+    });
+}
+
+
+
+
+
+
+// Example usage of password validation
+const password = "MySecureP@ss1";
+const confirmPassword = "MySecureP@ss1";
+
+const result = validatePasswords(password, confirmPassword);
+
+if (result.isValid) {
+    console.log("Password is valid and matches the confirmation field.");
+} else {
+    console.error("Validation errors:", result.errors);
+}
+
+const inputField = document.createElement('input');
+const inputField02 = document.createElement('input');
+const inputField03 = document.createElement('input');
+document.body.appendChild(inputField);
+
+addinputFields(inputField,inputField02,inputField03);
+autoCapitalizeInput(inputField,inputField02,inputField03);
+handleTabPress(inputField);
+
+
+
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------------
+
+
+function handleTabPress(inputElement, updateElement) {
+    inputElement.addEventListener('keydown', function (event) {
+        if (event.key === 'Tab') {
+            event.preventDefault(); // Prevent default tab behavior
+
+            const start = inputElement.selectionStart;
+            const end = inputElement.selectionEnd;
+
+            // Insert tab character (or spaces) at the cursor position
+            const tabCharacter = "\t"; // Use "    " for spaces instead of \t if preferred
+            inputElement.value = inputElement.value.substring(0, start) + tabCharacter + inputElement.value.substring(end);
+
+            // Move cursor to the end of the inserted tab
+            inputElement.selectionStart = inputElement.selectionEnd = start + tabCharacter.length;
+
+            // Update another element on the same page
+            if (updateElement) {
+                updateElement.textContent = `Updated Value: ${inputElement.value}`;
+            }
+        }
+    });
+}
