@@ -1934,7 +1934,7 @@ function addBtn(array,btn)
 	if(btn!=undefined)
 	{
 			let j=0;
-		  document.write("<input type='"+array[btn][j++]+"' id='"+array[btn][j++]+"' onclick='"+array[btn][j++]+"' value='"+array[btn][j]+"' />");
+		  document.write("<input type='"+array[btn][j++]+"' class='"+array[btn][j]+"' id='"+array[btn][j++]+"' onclick='"+array[btn][j++]+"' value='"+array[btn][j]+"' />");
       
 	
 	}
@@ -1944,7 +1944,7 @@ function addBtn(array,btn)
         {
           for(let j=0;j<array[i].length;++j)
           {
-        document.write("<input type='"+array[i][j++]+"' id='"+array[i][j++]+"' onclick='"+array[i][j++]+"' value='"+array[i][j]+"' />");
+        document.write("<input type='"+array[i][j++]+"' class='"+array[i][j]+"' id='"+array[i][j++]+"'  onclick='"+array[i][j++]+"' value='"+array[i][j]+"' />");
       }
     }
   }
