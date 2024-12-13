@@ -1910,7 +1910,7 @@ result
 
 */
 
-function addInputNoBtn(array)
+function addInput(array)
 {
 	for(let i=0;i<array.length;++i)
         {
@@ -1924,30 +1924,7 @@ function addInputNoBtn(array)
 
 //----------------------------------------------------------------------
 
-/*
-var person=[
-			["text","username","Username"],
-			["text","quote","Quote"],
-			["url","phoUrl","Photo URL"],
-			["Add Person"],
-		];
 
-
-
-*/
-function addInputWithBtn(array,noBtn=1)
-{
-	for(let i=0;i<array.length-noBtn;++i)
-        {
-          for(let j=0;j<array[i].length;++j)
-          {
-        document.write("<input type='"+array[i][j++]+"' id='"+array[i][j++]+"' placeholder='"+array[i][j]+"' />");
-      }
-    }
-}
-
-
-//----------------------------------------------------------------------
 
 function addBtn(array,btn)
 {
