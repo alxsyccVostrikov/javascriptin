@@ -1588,8 +1588,43 @@ function validatePasswords(password, confirmPassword) {
 //------------------------------------------------------------
 
 
-function validatePasswords02(password, confirmPassword) {
+function trueAnswer()
+{
+	let password=document.getElementById("pass1").value;
+	let confirmPassword=document.getElementById("pass2").value;
+	let answer=true;
 
+    // Validation rules for the password
+    if (password.length < 8) {
+        answer = false;
+  }
+
+    if (!/[A-Z]/.test(password)) {
+        answer = false;
+    }
+
+    if (!/[a-z]/.test(password)) {
+        answer = false;
+  
+    }
+
+    if (!/[0-9]/.test(password)) {
+        answer = false;
+    }
+
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+        answer = false;
+    }
+
+    // Check if passwords match
+    if (password !== confirmPassword) {
+        answer = false;
+    }
+    
+    return answer;
+}
+function validatePasswords02(password, confirmPassword) {
+let pass=document.getElementById('pass2');
 const passwordValidation = {
         isValid: true,
         errors: []
@@ -1598,44 +1633,51 @@ const passwordValidation = {
     // Validation rules for the password
     if (password.length < 8) {
         passwordValidation.isValid = false;
-        passwordValidation.errors.push("Password must be at least 8 characters long.");
-    }
+        passwordValidation.errors.push("Senha que conter peolo menos 8 caracteres.");
+  pass.focus();
+  }
 
     if (!/[A-Z]/.test(password)) {
         passwordValidation.isValid = false;
-        passwordValidation.errors.push("Password must contain at least one uppercase letter.");
+        passwordValidation.errors.push("Senha tem que existir pelo menos uma letra maiúscula.");
+   pass.focus();
     }
 
     if (!/[a-z]/.test(password)) {
         passwordValidation.isValid = false;
-        passwordValidation.errors.push("Password must contain at least one lowercase letter.");
+        passwordValidation.errors.push("Senha tem que existir pelo menos uma letra minúscula.");
+   pass.focus();
     }
 
     if (!/[0-9]/.test(password)) {
         passwordValidation.isValid = false;
-        passwordValidation.errors.push("Password must contain at least one number.");
+        passwordValidation.errors.push("Senha tem que existir pelo menos um número.");
+   pass.focus();
     }
 
     if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
         passwordValidation.isValid = false;
-        passwordValidation.errors.push("Password must contain at least one special character.");
+        passwordValidation.errors.push("Senha tem que existir pelo menos um caracter especial.");
+  pass.focus();
     }
 
     // Check if passwords match
     if (password !== confirmPassword) {
         passwordValidation.isValid = false;
-        passwordValidation.errors.push("Passwords do not match.");
+        passwordValidation.errors.push("Senhas não conferem!");
+  pass.focus();
     }
     
     
     if (passwordValidation.isValid)
     {
-    	alert("Password is valid and matches the confirmation field.");
+    	alert("Sua senha é uma senha válida e segue aos nossos padrões de segurança.");
 	} 
 	else
     {
-    	alert("Validation errors:", passwordValidation.errors);
-	}
+    	alert("Senha não segue nossos padrões de segurança ou não conferem uma com a outra");
+ pass.focus();
+  }
 
 }
 
@@ -1659,7 +1701,7 @@ function generateAsciiTable(){
 }
 
 
-generateAsciiTable()
+//generateAsciiTable()
 
 
 
@@ -1705,10 +1747,9 @@ function capitalizeFirstLetter(word) {
 
 
 function handleTabPress(inputElement) {
-    inputElement.addEventListener('keydown', function (event) {
+	inputElement.addEventListener('keydown', function (event) {
         if (event.key === 'Tab') {
-            event.preventDefault(); // Prevent default tab behavior
-            //validatePasswords02(password,confirmPassword )
+     			validatePasswords02(document.getElementById('pass1').value,document.getElementById('pass2').value)
        
         }
     });
@@ -1720,6 +1761,7 @@ function handleTabPress(inputElement) {
 
 
 // Example usage of password validation
+/*
 const password = "MySecureP@ss1";
 const confirmPassword = "MySecureP@ss1";
 
@@ -1731,17 +1773,14 @@ if (result.isValid) {
     console.error("Validation errors:", result.errors);
 }
 
-const inputField = document.createElement('input');
+const inputField = document.createElement("input");
 const inputField02 = document.createElement('input');
 const inputField03 = document.createElement('input');
-document.body.appendChild(inputField);
 
 addinputFields(inputField,inputField02,inputField03);
 autoCapitalizeInput(inputField,inputField02,inputField03);
-handleTabPress(inputField);
-
-
-
+handleTabPress(inputField02);
+*/
 
 
 
@@ -1754,7 +1793,7 @@ handleTabPress(inputField);
 //-------------------------------------------------------------------
 
 
-function handleTabPress(inputElement, updateElement) {
+function handleTabPress02(inputElement, updateElement) {
     inputElement.addEventListener('keydown', function (event) {
         if (event.key === 'Tab') {
             event.preventDefault(); // Prevent default tab behavior
@@ -1775,4 +1814,170 @@ function handleTabPress(inputElement, updateElement) {
             }
         }
     });
+}
+
+
+
+//-------------------------------------------------------------
+
+function capitalizeWords(event) {
+            const input = event.target;
+            input.value = input.value
+                .split(' ') // Split by spaces
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalize first letter
+                .join(' '); // Rejoin with spaces
+        }
+
+
+
+        /*
+
+        <label for="textInput">Type something:</label>
+    <input 
+        id="textInput" 
+        type="text" 
+        oninput="capitalizeWords(event)" 
+        placeholder="Start typing..." 
+    />
+    */
+
+
+
+    //----------------------------------------------------------------
+
+function FirstForEachWord()
+    {
+        const inputText = document.getElementById("inputText");
+
+        inputText.addEventListener("input", () => {
+            const cursorPosition = inputText.selectionStart;
+
+            inputText.value = inputText.value.replace(/(?:^|\.\s*)([a-z])/g, (match, char) => {
+                return match.replace(char, char.toUpperCase());
+            });
+
+            // Restore the cursor position
+            inputText.setSelectionRange(cursorPosition, cursorPosition);
+        });
+        }
+
+         //<textarea id="inputText" rows="5" cols="40" placeholder="Type here..."></textarea>
+        //FirstForEachWord()
+
+
+
+        //--------------------------------------------------------------
+
+function getFileExtension(filename) {
+    // Check if the filename contains a dot
+    if (filename.includes('.')) {
+        // Extract the extension using the last dot
+        return filename.substring(filename.lastIndexOf('.') + 1).toLowerCase();
+    } else {
+        // Return null if no extension exists
+        return null;
+    }
+}
+
+
+//------------------------------------------------------------------
+
+
+function getPageName() {
+    // Get the current URL path
+    const path = window.location.pathname;
+
+    // Extract the last part of the path
+    const pageName = path.substring(path.lastIndexOf('/') + 1);
+
+    // Return the page name
+    return pageName;
+}
+
+
+//------------------------------------------------------------------
+/*
+var webPage="Anuário De Curso";
+var logIn=[
+			["text","username","Username"],
+			["password","password","Password"],
+		];
+
+*/
+
+/*
+result
+
+*/
+
+function addInputNoBtn(array)
+{
+	for(let i=0;i<array.length;++i)
+        {
+          for(let j=0;j<array[i].length;++j)
+          {
+        document.write("<input type='"+array[i][j++]+"' id='"+array[i][j++]+"' placeholder='"+array[i][j]+"' />");
+      }
+    }
+}
+
+
+//----------------------------------------------------------------------
+
+/*
+var person=[
+			["text","username","Username"],
+			["text","quote","Quote"],
+			["url","phoUrl","Photo URL"],
+			["Add Person"],
+		];
+
+
+
+*/
+function addInputWithBtn(array,noBtn=1)
+{
+	for(let i=0;i<array.length-noBtn;++i)
+        {
+          for(let j=0;j<array[i].length;++j)
+          {
+        document.write("<input type='"+array[i][j++]+"' id='"+array[i][j++]+"' placeholder='"+array[i][j]+"' />");
+      }
+    }
+}
+
+
+//----------------------------------------------------------------------
+
+function addBtn(array,btn)
+{
+
+
+/*
+	if(btn==0)
+	{
+		let j=0;
+		  document.write("<button type='"+array[btn][j++]+"' id='"+array[btn][j++]+"' onclick='"+array[btn][j++]+"'>"+array[btn][j]+"</button>");
+      
+	}
+	*/
+
+	if(btn!=undefined)
+	{
+			let j=0;
+		  document.write("<button type='"+array[btn][j++]+"' id='"+array[btn][j++]+"' onclick='"+array[btn][j++]+"'>"+array[btn][j]+"</button>");
+      
+	
+	}
+	else
+	{
+		for(let i=0;i<array.length;++i)
+        {
+          for(let j=0;j<array[i].length;++j)
+          {
+        document.write("<button type='"+array[i][j++]+"' id='"+array[i][j++]+"' onclick='"+array[i][j++]+"'>"+array[i][j]+"</button>");
+      }
+    }
+  }
+  
 }
