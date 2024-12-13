@@ -1953,19 +1953,11 @@ function addBtn(array,btn)
 {
 
 
-/*
-	if(btn==0)
-	{
-		let j=0;
-		  document.write("<button type='"+array[btn][j++]+"' id='"+array[btn][j++]+"' onclick='"+array[btn][j++]+"'>"+array[btn][j]+"</button>");
-      
-	}
-	*/
 
 	if(btn!=undefined)
 	{
 			let j=0;
-		  document.write("<button type='"+array[btn][j++]+"' id='"+array[btn][j++]+"' onclick='"+array[btn][j++]+"'>"+array[btn][j]+"</button>");
+		  document.write("<input type='"+array[btn][j++]+"' id='"+array[btn][j++]+"' onclick='"+array[btn][j++]+"' value='"+array[btn][j]+"' />");
       
 	
 	}
@@ -1975,7 +1967,7 @@ function addBtn(array,btn)
         {
           for(let j=0;j<array[i].length;++j)
           {
-        document.write("<button type='"+array[i][j++]+"' id='"+array[i][j++]+"' onclick='"+array[i][j++]+"'>"+array[i][j]+"</button>");
+        document.write("<input type='"+array[i][j++]+"' id='"+array[i][j++]+"' onclick='"+array[i][j++]+"' value='"+array[i][j]+"' />");
       }
     }
   }
