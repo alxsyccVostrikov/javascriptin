@@ -1910,15 +1910,26 @@ result
 
 */
 
-function addInput(array)
+function addInput(array,input)
 {
+	if(input!=undefined)
+	{
+			let j=0;
+		    document.write("<input type='"+array[input][j++]+"' class='"+array[input][j]+"' id='"+array[input][j++]+"' placeholder='"+array[input][j]+"' />");
+      
+	
+	}
+	else
+	{
 	for(let i=0;i<array.length;++i)
         {
           for(let j=0;j<array[i].length;++j)
           {
-        document.write("<input type='"+array[i][j++]+"' id='"+array[i][j++]+"' placeholder='"+array[i][j]+"' />");
-      }
+        document.write("<input type='"+array[i][j++]+"' class='"+array[i][j]+"' id='"+array[i][j++]+"' placeholder='"+array[i][j]+"' />");
+         document.write("</br>");
+	}
     }
+  }
 }
 
 
@@ -1945,7 +1956,39 @@ function addBtn(array,btn)
           for(let j=0;j<array[i].length;++j)
           {
         document.write("<input type='"+array[i][j++]+"' class='"+array[i][j]+"' id='"+array[i][j++]+"'  onclick='"+array[i][j++]+"' value='"+array[i][j]+"' />");
-      }
+     document.write("</br>");
+	
+     }
+    }
+  }
+  
+}
+
+
+
+
+function addLabel(array,label)
+{
+
+
+
+	if(label!=undefined)
+	{
+			let j=0;
+
+			document.write("<label for='"+array[label][j++]+"' class='"+array[label][j]+" id='"+array[label][j]+"'>"+array[label][0]+"</label>");
+	    
+	
+	}
+	else
+	{
+		for(let i=0;i<array.length;++i)
+        {
+          for(let j=0;j<array[i].length;++j)
+          {
+		  document.write("<label for='"+array[i][j++]+"' class='"+array[i][j]+"' id='"+array[i][j]+"'>"+array[i][0]+"</label>");
+	   document.write("</br>");
+	     }
     }
   }
   
