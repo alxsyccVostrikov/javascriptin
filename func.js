@@ -21,6 +21,7 @@ ar02=[a,b,c,d,e,f];
 
 */
 
+
 function bubbleSort(array) 
 {
   let temp=""; 
@@ -1380,9 +1381,17 @@ function whatisThat(watisthat)
 
 
 /*-------------------------------------------------------------------------------------------0
-check if param is an obj or array
+sort of Elements of a array
 */
+/*
+result...
 
+x=['b','d','a','c'];
+c=selectionSort(x);
+
+
+['a','b','c','d']
+*/
 
 
 function selectionSort(arr) {
@@ -1410,8 +1419,18 @@ function selectionSort(arr) {
 
 
 
+
 /*-------------------------------------------------------------------------------------------0
-check if param is an obj or array
+sort of Elements of a array
+*/
+/*
+result...
+
+x=['b','d','a','c'];
+c=quickSort(x);
+
+
+['a','b','c','d']
 */
 
 
@@ -1443,7 +1462,16 @@ function quickSort(arr)
 
 
 /*-------------------------------------------------------------------------------------------0
-check if param is an obj or array
+sort of Elements of a array
+*/
+/*
+result...
+
+x=['b','d','a','c'];
+c=quickSort(x);
+
+
+['a','b','c','d']
 */
 
 function quickSort(arr) 
@@ -1456,49 +1484,10 @@ function quickSort(arr)
 }
 
 
+//---------------------------------------------------------------------
+/*
 
-/*-------------------------------------------------------------------------------------------0
-check if param is an obj or array
 */
-
-function signupForm(PHPpage)
-{
-	document.write(
-		"<form action='"+PHPpage+"'>"+
- 			"<fieldset>"+
-  		"<legend>Usuário:</legend>"+
-  		"<label for='fname'>Nome:</label>"+
-  		"<input type='text' id='fname' name='fname'><br><br>"+
-  		"<label for='lname'>Sobrenome:</label>"+
-  		"<input type='text' id='lname' name='lname'><br><br>"+
-  		"<label for='email'>Email:</label>"+
-  		"<input type='email' id='email' name='email'><br><br>"+
-  		"<label for='birthday'>Birthday:</label>"+
-  		"<input type='date' id='birthday' name='birthday'><br><br>"+
-  		"<input type='submit' value='Cadastrar'>"+
- 			"</fieldset>");
- }
-
-
-
-/*-------------------------------------------------------------------------------------------0
-check if param is an obj or array
-*/
-
-
-function textArea(c,l,PHPpage)
-{
-	document.write(
-	"<form action='"+PHPpage+"'>"+
-  "<p><label for='areaReview'>Review da mensagem:</label></p>"+
-  "<textarea id='areaReview' name='areaReview' rows="+l+" cols="+c+" placeholder='olá,eu gostaria de fazer parte do seu circulo de amizade aqui no adventNET.'></textarea>"+
-  "<br>"+
-  "<input type='submit' value='Submit'>"+
-	"</form>");
-
-}
-
-
 function table(whatever,domain="")
 {
 	let whoami=whatisThat(whatever);
@@ -1588,10 +1577,8 @@ function validatePasswords(password, confirmPassword) {
 //------------------------------------------------------------
 
 
-function trueAnswer()
+function trueAnswer(password,confirmPassword)
 {
-	let password=document.getElementById("pass1").value;
-	let confirmPassword=document.getElementById("pass2").value;
 	let answer=true;
 
     // Validation rules for the password
@@ -1624,7 +1611,6 @@ function trueAnswer()
     return answer;
 }
 function validatePasswords02(password, confirmPassword) {
-let pass=document.getElementById('pass2');
 const passwordValidation = {
         isValid: true,
         errors: []
@@ -1706,7 +1692,16 @@ function generateAsciiTable(){
 
 
 //------------------------------------------------------------------
+/*
+for each word is 1st letter converted into UpperCase
+*/
+/*
+result.
 
+autoCapitalizeInput("armour","black","cout","dino")
+
+["Armour","Black","Cout","Dino"]
+*/
 function autoCapitalizeInput(...inputElement) {
 for(let i in inputElement)
 {
@@ -1718,6 +1713,15 @@ for(let i in inputElement)
 }
 }
 
+//--------------------------------------------------------------------
+
+
+function capitalizeFirstLetter(word) {
+    if (typeof word !== 'string' || word.length === 0) {
+        return word;
+    }
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+}
 
 //--------------------------------------------------------------------------
 
@@ -1728,18 +1732,6 @@ for(let i in inputFields)
 	document.body.appendChild(inputFields[i]);
 
 }
-}
-
-
-
-//--------------------------------------------------------------------
-
-
-function capitalizeFirstLetter(word) {
-    if (typeof word !== 'string' || word.length === 0) {
-        return word;
-    }
-    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 }
 
 
@@ -1866,7 +1858,12 @@ function FirstForEachWord()
 
 
 
-        //--------------------------------------------------------------
+//--------------------------------------------------------------
+/*
+x="www.example.com/index.php"
+
+["index.php"]
+*/
 
 function getFileExtension(filename) {
     // Check if the filename contains a dot
@@ -1881,6 +1878,11 @@ function getFileExtension(filename) {
 
 
 //------------------------------------------------------------------
+/*
+x="www.example.com/index.php"
+
+["index.php"]
+*/
 
 
 function getPageName() {
@@ -1926,8 +1928,7 @@ function addInput(array,input)
           for(let j=0;j<array[i].length;++j)
           {
         document.write("<input type='"+array[i][j++]+"' class='"+array[i][j]+"' id='"+array[i][j++]+"' placeholder='"+array[i][j]+"' />");
-         document.write("</br>");
-	}
+  }
     }
   }
 }
@@ -1945,7 +1946,7 @@ function addBtn(array,btn)
 	if(btn!=undefined)
 	{
 			let j=0;
-		  document.write("<input type='"+array[btn][j++]+"' class='"+array[btn][j]+"' id='"+array[btn][j++]+"' onclick='"+array[btn][j++]+"' value='"+array[btn][j]+"' />");
+		  document.write("<button class='"+array[btn][j]+"' id='"+array[btn][j++]+"' onclick='"+array[btn][j++]+"' >"+array[btn][j]+"</button>");
       
 	
 	}
@@ -1955,8 +1956,7 @@ function addBtn(array,btn)
         {
           for(let j=0;j<array[i].length;++j)
           {
-        document.write("<input type='"+array[i][j++]+"' class='"+array[i][j]+"' id='"+array[i][j++]+"'  onclick='"+array[i][j++]+"' value='"+array[i][j]+"' />");
-     document.write("</br>");
+document.write("<button class='"+array[i][j]+"' id='"+array[i][j++]+"' onclick='"+array[i][j++]+"' >"+array[i][j]+"</button>");
 	
      }
     }
@@ -1992,4 +1992,100 @@ function addLabel(array,label)
     }
   }
   
+}
+
+
+function sendMessage(action,method)
+{
+	document.write(
+		"<form name='formMessage' id='formMessage' action='"+action+"' method='"+method+"'>"+
+		"<input type='text' name='formName' id='formName' placeholder='Your Name' required>"+
+		"<input type='email' name='formEmail' id='formEmail' placeholder='Your Email' required>"+
+		"<textarea name='formMessage' id='formMessage' rows='5' placeholder='Your Message' required></textarea>"+
+		"<button type='submit' name='formSubmit' id='formSubmit'>Send Message</button>");
+
+}
+
+function footer(message)
+{
+document.write(
+"<footer><p>"+message+"</p></footer>");
+}
+ //&copy; 2024 Engineering Company. All rights reserved.
+
+
+/*-------------------------------------------------------------------------------------------0
+create signupFrom
+*/
+
+function signupForm(action,method,array)
+{
+	document.write(
+		"<form action='"+action+"' method='"+method+"'>"+
+ 			"<fieldset>"+
+  		"<legend>User:</legend>");
+			for(let i=0;i<array.length-1;++i)
+			{
+  			document.write(
+  				"<label for='"+array[i][1]+"'>"+array[i][2]+":</label>");
+  			for(let j=0;j<array[i].length;++j)
+  			{
+  				document.write("<input type='"+array[i][j]+"' id='"+array[i][j]+"Form_"+array[i][++j]+"' name='"+array[i][--j]+"Form_"+array[i][++j]+"' placeholder='"+array[i][++j]+"'><br><br>");
+				}
+
+			}
+			let i=array.length-1;
+			let j=0;
+  		document.write("<input type='"+array[i][j]+"' id='"+array[i][j]+"Form_"+array[i][++j]+"' name='"+array[i][--j]+"Form_"+array[i][++j]+"' value='"+array[i][++j]+"'>");
+ 			document.write("</fieldset>");
+ }
+
+
+
+
+/*-------------------------------------------------------------------------------------------0
+create signinFrom
+*/
+
+function signinForm(action,method,array)
+{
+	document.write(
+		"<form action='"+action+"' method='"+method+"'>"+
+ 			"<fieldset>"+
+  		"<legend>User:</legend>");
+			for(let i=0;i<array.length-1;++i)
+			{
+  			document.write(
+  				"<label for='"+array[i][1]+"'>"+array[i][2]+":</label>");
+  			for(let j=0;j<array[i].length;++j)
+  			{
+  				document.write("<input type='"+array[i][j]+"' id='"+array[i][j]+"Form_"+array[i][++j]+"' name='"+array[i][--j]+"Form_"+array[i][++j]+"' placeholder='"+array[i][++j]+"'><br><br>");
+				}
+
+			}
+			let i=array.length-1;
+			let j=0;
+  		document.write("<input type='"+array[i][j]+"' id='"+array[i][j]+"Form_"+array[i][++j]+"' name='"+array[i][--j]+"Form_"+array[i][++j]+"' value='"+array[i][++j]+"'>");
+ 			document.write("</fieldset>");
+ }
+
+
+
+
+
+ /*-------------------------------------------------------------------------------------------0
+check if param is an obj or array
+*/
+
+
+function textArea(c,l,action)
+{
+	document.write(
+	"<form action='"+action+"'>"+
+  "<p><label for='areaReview'>Review da mensagem:</label></p>"+
+  "<textarea id='areaReview' name='areaReview' rows="+l+" cols="+c+" placeholder='olá,eu gostaria de fazer parte do seu circulo de amizade aqui no adventNET.'></textarea>"+
+  "<br>"+
+  "<input type='submit' value='Submit'>"+
+	"</form>");
+
 }
